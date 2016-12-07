@@ -38,29 +38,11 @@
 						{!! Form::hidden('objectId', $row['objectId']) !!}
 
 										<div class="form-group  " >
-											<label for="Organization Name" class=" control-label col-md-4 text-left"> Organization Name </label>
-											<div class="col-md-7">
-										  		<input type='text' name='organization_name' id='organization_name' value='{{ $row['organization_name'] }}'    class='form-control ' /> 
-										 	</div> 
-										 	<div class="col-md-1">
-										 		
-										 	</div>
-									  	</div> 
-										<div class="form-group  " >
-											<label for="Organization Name Mm" class=" control-label col-md-4 text-left"> Organization Name Mm </label>
-											<div class="col-md-7">
-										  		<input type='text' name='organization_name_mm' id='organization_name_mm' value='{{ $row['organization_name_mm'] }}'    class='form-control ' /> 
-										 	</div> 
-										 	<div class="col-md-1">
-										 		
-										 	</div>
-									  	</div> 
-										<div class="form-group  " >
 											<label for="AuthorImg" class=" control-label col-md-4 text-left"> AuthorImg </label>
 											<div class="col-md-7">
 										  		
 							<input type='file' name='authorImg' id='authorImg' @if($row['authorImg'] =='') class='required' @endif 
-							style='width:150px !important;'                                                                                                                                                                                                                          />
+							style='width:150px !important;'                                                                                                                                                                                                                                                                                                  />
 						 	<div >
 								
 								{!! SiteHelpers::showUploadedFile($row['authorImg'],'authors_photo') !!}
@@ -139,9 +121,9 @@
                 <div class="row">
                     <div class="form-actions">
                         <div class="col-md-offset-4 col-md-8">
-                            <button type="submit" name="apply" class="btn btn-info"><i class="icon-checkmark-circle2"></i> {{ Lang::get('core.sb_apply') }}</button>
-                            <button type="submit" name="submit" class="btn btn-success"><i class="icon-bubble-check"></i> {{ Lang::get('core.sb_save') }}</button>
-                            <button type="button" onclick="location.href='{{ URL::to('author?return='.$return) }}' " class="btn red "><i class="icon-cancel-circle2 "></i> {{ Lang::get('core.sb_cancel') }} </button>
+                            <button type="submit" name="apply" class="btn btn-info"><i class="fa fa-check-circle"></i> {{ Lang::get('core.sb_apply') }}</button>
+                            <button type="submit" name="submit" class="btn btn-success"><i class="fa fa-save"></i> {{ Lang::get('core.sb_save') }}</button>
+                            <button type="button" onclick="location.href='{{ URL::to('author?return='.$return) }}' " class="btn red "><i class="fa fa-close "></i> {{ Lang::get('core.sb_cancel') }} </button>
                         </div>
 
                     </div>

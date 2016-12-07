@@ -8,7 +8,7 @@
         	<div class="portlet-title">
                 @if(isset($pageTitle) && isset($pageNote))
                 <div class="caption">
-                    <i class="fa fa-table font-blue-sharp"></i>
+                    <i class="icon-grid font-blue-sharp"></i>
                     <span class="caption-subject font-blue-sharp bold uppercase">{{ $pageTitle }} : <small> {{ $pageNote }}</small></span>
                 </div>
                 @endif
