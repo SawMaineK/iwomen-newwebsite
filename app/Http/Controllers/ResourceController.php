@@ -50,7 +50,7 @@ class ResourceController extends Controller {
 	{
 
 		if($this->access['is_view'] ==0) 
-			return Redirect::to('dashboard')
+			return Redirect::to('login')
 				->with('messagetext', \Lang::get('core.note_restric'))->with('msgstatus','error');
 
 		$sort = (!is_null($request->input('sort')) ? $request->input('sort') : 'id'); 
@@ -111,13 +111,13 @@ class ResourceController extends Controller {
 		if($id =='')
 		{
 			if($this->access['is_add'] ==0 )
-			return Redirect::to('dashboard')->with('messagetext',\Lang::get('core.note_restric'))->with('msgstatus','error');
+			return Redirect::to('login')->with('messagetext',\Lang::get('core.note_restric'))->with('msgstatus','error');
 		}	
 		
 		if($id !='')
 		{
 			if($this->access['is_edit'] ==0 )
-			return Redirect::to('dashboard')->with('messagetext',\Lang::get('core.note_restric'))->with('msgstatus','error');
+			return Redirect::to('login')->with('messagetext',\Lang::get('core.note_restric'))->with('msgstatus','error');
 		}				
 				
 		$row = $this->model->find($id);
@@ -137,7 +137,7 @@ class ResourceController extends Controller {
 	{
 
 		if($this->access['is_detail'] ==0) 
-		return Redirect::to('dashboard')
+		return Redirect::to('login')
 			->with('messagetext', \Lang::get('core.note_restric'))->with('msgstatus','error');
 					
 		$row = $this->model->getRow($id);
@@ -194,7 +194,7 @@ class ResourceController extends Controller {
 	{
 		
 		if($this->access['is_remove'] ==0) 
-			return Redirect::to('dashboard')
+			return Redirect::to('login')
 				->with('messagetext', \Lang::get('core.note_restric'))->with('msgstatus','error');
 		// delete multipe rows 
 		if(count($request->input('ids')) >=1)

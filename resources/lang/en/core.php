@@ -117,7 +117,7 @@ return array(
 	"btn_back"						=> "Back",	
 	"btn_action"					=> "Action",	
 	"btn_search"					=> "Search",	
-	"btn_clearsearch"				=> "Clear Search",	
+	"btn_clear"						=> "Clear Search",	
 	"btn_download"					=> "Download",	
 	"btn_config"					=> "Configuration",	
 	"btn_copy"						=> "Copy", // Ajax 

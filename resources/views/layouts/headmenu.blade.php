@@ -78,9 +78,6 @@
                         <ul class="dropdown-menu dropdown-menu-default">
                             <li><a href="{{ URL::to('user/profile')}}"><i class="icon-bubble-user"></i> {{ Lang::get('core.m_profile') }}</a></li>
                             <li><a href="{{ URL::to('user/logout')}}"><i class="icon-enter3"></i> {{ Lang::get('core.m_logout') }}</a></li>
-                            @if(Auth::user()->group_id == 1 || Auth::user()->group_id == 2)
-                            <li><a href="{{ URL::to('user/config')}}"><i class="icon-settings"></i> {{ Lang::get('core.m_setting') }}</a></li>
-                            @endif
                         </ul>
                     </li>
                     <!-- END USER LOGIN DROPDOWN -->

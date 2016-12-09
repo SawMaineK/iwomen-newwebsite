@@ -138,9 +138,9 @@
                 <div class="row">
                     <div class="form-actions">
                         <div class="col-md-offset-4 col-md-8">
-                            <button type="submit" name="apply" class="btn btn-info"><i class="icon-checkmark-circle2"></i> {{ Lang::get('core.sb_apply') }}</button>
-                            <button type="submit" name="submit" class="btn btn-success"><i class="icon-bubble-check"></i> {{ Lang::get('core.sb_save') }}</button>
-                            <button type="button" onclick="location.href='{{ URL::to('resource?return='.$return) }}' " class="btn red "><i class="icon-cancel-circle2 "></i> {{ Lang::get('core.sb_cancel') }} </button>
+                            <button type="submit" name="apply" class="btn btn-info"><i class="fa fa-check-circle"></i> {{ Lang::get('core.sb_apply') }}</button>
+                            <button type="submit" name="submit" class="btn btn-success"><i class="fa fa-save"></i> {{ Lang::get('core.sb_save') }}</button>
+                            <button type="button" onclick="location.href='{{ URL::to('resource?return='.$return) }}' " class="btn red "><i class="fa fa-close "></i> {{ Lang::get('core.sb_cancel') }} </button>
                         </div>
 
                     </div>

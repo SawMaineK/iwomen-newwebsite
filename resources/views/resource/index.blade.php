@@ -7,26 +7,26 @@
         	<div class="portlet-title">
                 @if(isset($pageTitle) && isset($pageNote))
                 <div class="caption">
-                    <i class="fa fa-table font-blue-sharp"></i>
+                    <i class="icon-grid font-blue-sharp"></i>
                     <span class="caption-subject font-blue-sharp bold uppercase">{{ $pageTitle }} : <small> {{ $pageNote }}</small></span>
                 </div>
                 @endif
                 <div class="actions">
-            		@if($access['is_add'] ==1)
-                    <a href="{{ URL::to('resource/update?return='.$return) }}" class="tips btn btn-xs btn-default" title="{{ Lang::get('core.btn_create') }}">
-                        <i class="fa  fa-plus "></i></a>
+                    @if($access['is_add'] ==1)
+                    <a href="{{ URL::to('resource/update?return='.$return) }}" class="tips btn btn-xs btn-success" title="{{ Lang::get('core.btn_create') }}">
+                        <i class="fa  fa-plus "></i> <span class="hidden-xs">{{ Lang::get('core.btn_create') }}</span></a>
                     @endif @if($access['is_remove'] ==1)
-                    <a href="javascript://ajax" onclick="SximoDelete();" class="tips btn btn-xs btn-default" title="{{ Lang::get('core.btn_remove') }}">
-                        <i class="fa fa-trash-o"></i></a>
+                    <a href="javascript://ajax" onclick="SximoDelete();" class="tips btn btn-xs red" title="{{ Lang::get('core.btn_remove') }}">
+                        <i class="fa fa-trash-o"></i> <span class="hidden-xs">{{ Lang::get('core.btn_remove') }}</span></a>
                     @endif
-                    <a href="{{ URL::to( 'resource/search?return='.$return) }}" class="btn btn-xs btn-default" onclick="SximoModal(this.href,'Advance Search'); return false;" title="{{ Lang::get('core.btn_search') }}"><i class="fa  fa-search"></i> </a>
+                    <a href="{{ URL::to( 'resource/search?return='.$return) }}" class="tips btn btn-xs btn-info" onclick="SximoModal(this.href,'Advance Search'); return false;" title="{{ Lang::get('core.btn_search') }}"><i class="fa  fa-search"></i> <span class="hidden-xs">{{ Lang::get('core.btn_search') }}</span></a>
                     @if($access['is_excel'] ==1)
-                    <a href="{{ URL::to('resource/download?return='.$return) }}" class="tips btn btn-xs btn-default" title="{{ Lang::get('core.btn_download') }}">
-                        <i class="fa fa-cloud-download"></i></a>
+                    <a href="{{ URL::to('resource/download?return='.$return) }}" class="tips btn btn-xs btn-warning" title="{{ Lang::get('core.btn_download') }}">
+                        <i class="fa fa-cloud-download"></i> <span class="hidden-xs">{{ Lang::get('core.btn_download') }}</span></a>
                     @endif
 
-                    <a href="{{ url($pageModule) }}" class=" tips btn btn-xs btn-default" title="{{ Lang::get('core.btn_clearsearch') }}"><i class="fa fa-spinner"></i>  </a> @if(Session::get('gid') ==1)
-                    <a href="{{ URL::to('http://developers.myapibox.com/sximo/module/config/'.$pageModule) }}" class="tips btn btn-xs btn-default" title=" {{ Lang::get('core.btn_config') }}"><i class="fa  fa-ellipsis-v"></i></a> @endif
+                    <a href="{{ url($pageModule) }}" class=" tips btn btn-xs btn-danger" title="{{ Lang::get('core.btn_clearsearch') }}"><i class="fa fa-spinner"></i> <span class="hidden-xs"> {{ Lang::get('core.btn_clear') }}</span></a> @if(Session::get('gid') ==1)
+                    <a href="{{ URL::to('http://developers.myapibox.com/sximo/module/config/'.$pageModule) }}" class="tips btn btn-xs" title=" {{ Lang::get('core.btn_config') }}"><i class="fa  fa-ellipsis-v"></i></a> @endif
                 </div>
             </div>
 
