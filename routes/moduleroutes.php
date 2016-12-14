@@ -28,4 +28,18 @@
 	Route::post('resource/filter', 'ResourceController@postFilter');
 	Route::get('resource/lookup/{master_detail}', 'ResourceController@getLookup');
 
+	Route::get('beinspiredpost', 'BeinspiredpostController@getIndex');
+	Route::get('beinspiredpost/update', 'BeinspiredpostController@getUpdate');
+	Route::get('beinspiredpost/update/{id}', 'BeinspiredpostController@getUpdate');
+	Route::get('beinspiredpost/show/{id}', 'BeinspiredpostController@getShow');
+	Route::post('beinspiredpost/save', 'BeinspiredpostController@postSave');
+	Route::post('beinspiredpost/delete/{id}', 'BeinspiredpostController@postDelete');
+	Route::get('beinspiredpost/savepublic', 'BeinspiredpostController@postSavepublic');
+	Route::get('beinspiredpost/download', 'BeinspiredpostController@getDownload');
+	Route::get('beinspiredpost/search', 'BeinspiredpostController@getSearch');
+	Route::get('beinspiredpost/comboselect', 'BeinspiredpostController@getComboselect');
+	Route::get('beinspiredpost/removefiles', 'BeinspiredpostController@getComboselect');
+	Route::post('beinspiredpost/filter', 'BeinspiredpostController@postFilter');
+	Route::get('beinspiredpost/lookup/{master_detail}', 'BeinspiredpostController@getLookup');
+
 ?>
