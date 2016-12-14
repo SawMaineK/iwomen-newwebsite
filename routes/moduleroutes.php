@@ -42,4 +42,18 @@
 	Route::post('beinspiredpost/filter', 'BeinspiredpostController@postFilter');
 	Route::get('beinspiredpost/lookup/{master_detail}', 'BeinspiredpostController@getLookup');
 
+	Route::get('subresourcedetail', 'SubresourcedetailController@getIndex');
+	Route::get('subresourcedetail/update', 'SubresourcedetailController@getUpdate');
+	Route::get('subresourcedetail/update/{id}', 'SubresourcedetailController@getUpdate');
+	Route::get('subresourcedetail/show/{id}', 'SubresourcedetailController@getShow');
+	Route::post('subresourcedetail/save', 'SubresourcedetailController@postSave');
+	Route::post('subresourcedetail/delete/{id}', 'SubresourcedetailController@postDelete');
+	Route::get('subresourcedetail/savepublic', 'SubresourcedetailController@postSavepublic');
+	Route::get('subresourcedetail/download', 'SubresourcedetailController@getDownload');
+	Route::get('subresourcedetail/search', 'SubresourcedetailController@getSearch');
+	Route::get('subresourcedetail/comboselect', 'SubresourcedetailController@getComboselect');
+	Route::get('subresourcedetail/removefiles', 'SubresourcedetailController@getComboselect');
+	Route::post('subresourcedetail/filter', 'SubresourcedetailController@postFilter');
+	Route::get('subresourcedetail/lookup/{master_detail}', 'SubresourcedetailController@getLookup');
+
 ?>
