@@ -1,17 +1,17 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Beinspiredpost;
+use App\Models\Sisterdownloadapps;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 use Validator, Input, Redirect ; 
 
 
-class BeinspiredpostController extends Controller {
+class SisterdownloadappsController extends Controller {
 
 	protected $layout = "layouts.main";
 	protected $data = array();	
-	public $module = 'beinspiredpost';
+	public $module = 'sisterdownloadapps';
 	static $per_page	= '10';
 
 	public function __construct()
@@ -19,7 +19,7 @@ class BeinspiredpostController extends Controller {
 
 		$this->middleware(function ($request, $next) {
             parent::__construct();
-            $this->model = new Beinspiredpost();
+            $this->model = new Sisterdownloadapps();
 			
 			$this->info = $this->model->makeInfo( $this->module);
 			$this->access = $this->model->validAccess($this->info['id']);
@@ -28,7 +28,7 @@ class BeinspiredpostController extends Controller {
 				'pageTitle'	=> 	$this->info['title'],
 				'pageNote'	=>  $this->info['note'],
 				'pageAction'=>  'View All',
-				'pageModule'=> 'beinspiredpost',
+				'pageModule'=> 'sisterdownloadapps',
 				'return'	=> self::returnUrl()
 				
 			);
@@ -82,7 +82,7 @@ class BeinspiredpostController extends Controller {
 		// Build pagination setting
 		$page = $page >= 1 && filter_var($page, FILTER_VALIDATE_INT) !== false ? $page : 1;	
 		$pagination = new Paginator($results['rows'], $results['total'], $params['limit']);	
-		$pagination->setPath('beinspiredpost');
+		$pagination->setPath('sisterdownloadapps');
 		
 		$this->data['rowData']		= $results['rows'];
 		// Build Pagination 
@@ -101,7 +101,7 @@ class BeinspiredpostController extends Controller {
 		// Master detail link if any 
 		$this->data['subgrid']	= (isset($this->info['config']['subgrid']) ? $this->info['config']['subgrid'] : array()); 
 		// Render into template
-		return view('beinspiredpost.index',$this->data);
+		return view('sisterdownloadapps.index',$this->data);
 	}	
 
 
@@ -127,13 +127,13 @@ class BeinspiredpostController extends Controller {
 			$this->data['row'] =  $row;
 			$this->data['pageAction'] =  'Edit';
 		} else {
-			$this->data['row'] = $this->model->getColumnTable('iwomenPosts'); 
+			$this->data['row'] = $this->model->getColumnTable('sisterDownloadApps'); 
 			$this->data['pageAction'] =  'Add New';
 		}
 		$this->data['fields'] 		=  \SiteHelpers::fieldLang($this->info['config']['forms']);
 		
 		$this->data['id'] = $id;
-		return view('beinspiredpost.form',$this->data);
+		return view('sisterdownloadapps.form',$this->data);
 	}	
 
 	public function getShow( Request $request, $id = null)
@@ -153,9 +153,9 @@ class BeinspiredpostController extends Controller {
 			$this->data['access']		= $this->access;
 			$this->data['subgrid']	= (isset($this->info['config']['subgrid']) ? $this->info['config']['subgrid'] : array()); 
 			$this->data['prevnext'] = $this->model->prevNext($id);
-			return view('beinspiredpost.view',$this->data);
+			return view('sisterdownloadapps.view',$this->data);
 		} else {
-			return Redirect::to('beinspiredpost')->with('messagetext','Record Not Found !')->with('msgstatus','error');					
+			return Redirect::to('sisterdownloadapps')->with('messagetext','Record Not Found !')->with('msgstatus','error');					
 		}
 	}	
 
@@ -171,9 +171,9 @@ class BeinspiredpostController extends Controller {
 			
 			if(!is_null($request->input('apply')))
 			{
-				$return = 'beinspiredpost/update/'.$id.'?return='.self::returnUrl();
+				$return = 'sisterdownloadapps/update/'.$id.'?return='.self::returnUrl();
 			} else {
-				$return = 'beinspiredpost?return='.self::returnUrl();
+				$return = 'sisterdownloadapps?return='.self::returnUrl();
 			}
 
 			// Insert logs into database
@@ -188,7 +188,7 @@ class BeinspiredpostController extends Controller {
 			
 		} else {
 
-			return Redirect::to('beinspiredpost/update/'.$request->input('id'))->with('messagetext',\Lang::get('core.note_error'))->with('msgstatus','error')
+			return Redirect::to('sisterdownloadapps/update/'.$request->input('id'))->with('messagetext',\Lang::get('core.note_error'))->with('msgstatus','error')
 			->withErrors($validator)->withInput();
 		}	
 	
@@ -208,11 +208,11 @@ class BeinspiredpostController extends Controller {
 			
 			\SiteHelpers::auditTrail( $request , "ID : ".implode(",",$request->input('ids'))."  , Has Been Removed Successfull");
 			// redirect
-			return Redirect::to('beinspiredpost?return='.self::returnUrl())
+			return Redirect::to('sisterdownloadapps?return='.self::returnUrl())
         		->with('messagetext', \Lang::get('core.note_success_delete'))->with('msgstatus','success'); 
 	
 		} else {
-			return Redirect::to('beinspiredpost?return='.self::returnUrl())
+			return Redirect::to('sisterdownloadapps?return='.self::returnUrl())
         		->with('messagetext','No Item Deleted')->with('msgstatus','error');				
 		}
 
@@ -221,8 +221,8 @@ class BeinspiredpostController extends Controller {
 	public static function display( )
 	{
 		$mode  = isset($_GET['view']) ? 'view' : 'default' ;
-		$model  = new Beinspiredpost();
-		$info = $model::makeInfo('beinspiredpost');
+		$model  = new Sisterdownloadapps();
+		$info = $model::makeInfo('sisterdownloadapps');
 
 		$data = array(
 			'pageTitle'	=> 	$info['title'],
@@ -239,7 +239,7 @@ class BeinspiredpostController extends Controller {
 				$data['row'] =  $row;
 				$data['fields'] 		=  \SiteHelpers::fieldLang($info['config']['grid']);
 				$data['id'] = $id;
-				return view('beinspiredpost.public.view',$data);
+				return view('sisterdownloadapps.public.view',$data);
 			} 
 
 		} else {
@@ -263,7 +263,7 @@ class BeinspiredpostController extends Controller {
 			$pagination->setPath('');
 			$data['i']			= ($page * $params['limit'])- $params['limit']; 
 			$data['pagination'] = $pagination;
-			return view('beinspiredpost.public.index',$data);			
+			return view('sisterdownloadapps.public.index',$data);			
 		}
 
 

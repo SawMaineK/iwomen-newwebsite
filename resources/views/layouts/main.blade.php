@@ -30,6 +30,7 @@
         <link href="{{ asset('assets/global/plugins/markitup/skins/simple/style.css') }}" rel="stylesheet">
         <link href="{{ asset('assets/global/plugins/markitup/sets/default/style.css') }}" rel="stylesheet">
         <link href="{{ asset('assets/global/plugins/bootstrap-toastr/toastr.min.css')}}" rel="stylesheet">
+        <link href="{{ asset('assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css')}}" rel="stylesheet">
         <!-- END GLOBAL MANDATORY STYLES -->
         <!-- BEGIN PAGE LEVEL PLUGINS -->
         @yield('styles')
@@ -124,6 +125,7 @@
         <script type="text/javascript" src="{{ asset('assets/global/plugins/bootstrap-toastr/toastr.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('assets/global/plugins/markitup/jquery.markitup.js') }}"></script>  
         <script type="text/javascript" src="{{ asset('assets/global/plugins/markitup/sets/default/set.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js') }}"></script>
         <!-- END CORE PLUGINS -->
         <!-- BEGIN PAGE LEVEL PLUGINS -->
         @yield('plugin_scripts')

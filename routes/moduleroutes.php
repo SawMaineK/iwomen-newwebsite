@@ -56,4 +56,18 @@
 	Route::post('subresourcedetail/filter', 'SubresourcedetailController@postFilter');
 	Route::get('subresourcedetail/lookup/{master_detail}', 'SubresourcedetailController@getLookup');
 
+	Route::get('sisterdownloadapps', 'SisterdownloadappsController@getIndex');
+	Route::get('sisterdownloadapps/update', 'SisterdownloadappsController@getUpdate');
+	Route::get('sisterdownloadapps/update/{id}', 'SisterdownloadappsController@getUpdate');
+	Route::get('sisterdownloadapps/show/{id}', 'SisterdownloadappsController@getShow');
+	Route::post('sisterdownloadapps/save', 'SisterdownloadappsController@postSave');
+	Route::post('sisterdownloadapps/delete/{id}', 'SisterdownloadappsController@postDelete');
+	Route::get('sisterdownloadapps/savepublic', 'SisterdownloadappsController@postSavepublic');
+	Route::get('sisterdownloadapps/download', 'SisterdownloadappsController@getDownload');
+	Route::get('sisterdownloadapps/search', 'SisterdownloadappsController@getSearch');
+	Route::get('sisterdownloadapps/comboselect', 'SisterdownloadappsController@getComboselect');
+	Route::get('sisterdownloadapps/removefiles', 'SisterdownloadappsController@getComboselect');
+	Route::post('sisterdownloadapps/filter', 'SisterdownloadappsController@postFilter');
+	Route::get('sisterdownloadapps/lookup/{master_detail}', 'SisterdownloadappsController@getLookup');
+
 ?>

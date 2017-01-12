@@ -1,20 +1,20 @@
 <?php namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\Beinspiredpost;
+use App\Models\Sisterdownloadapps;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 use Validator, Input, Redirect ; 
 
 
-class BeinspiredpostAPIController extends Controller {
+class SisterdownloadappsAPIController extends Controller {
 
-	public $module = 'beinspiredpost';
+	public $module = 'sisterdownloadapps';
 
 	public function __construct()
 	{
 		
-		$this->model = new Beinspiredpost();
+		$this->model = new Sisterdownloadapps();
 		$this->info = $this->model->makeInfo( $this->module);
 		$this->access = $this->model->validAccess($this->info['id']);	
 		
@@ -169,7 +169,7 @@ class BeinspiredpostAPIController extends Controller {
      */
     public function destroy($id)
     {
-		if(Beinspiredpost::find($id))
+		if(Sisterdownloadapps::find($id))
 		{
 			$this->model->destroy($id);
 			

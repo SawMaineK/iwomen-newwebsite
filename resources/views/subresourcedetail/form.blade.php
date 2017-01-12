@@ -106,15 +106,6 @@
 										 	</div>
 									  	</div> 
 										<div class="form-group  " >
-											<label for="Share Count" class=" control-label col-md-4 text-left"> Share Count </label>
-											<div class="col-md-7">
-										  		<input type='text' name='share_count' id='share_count' value='{{ $row['share_count'] }}'    class='form-control ' /> 
-										 	</div> 
-										 	<div class="col-md-1">
-										 		
-										 	</div>
-									  	</div> 
-										<div class="form-group  " >
 											<label for="ObjectId" class=" control-label col-md-4 text-left"> ObjectId </label>
 											<div class="col-md-7">
 										  		<input type='text' name='objectId' id='objectId' value='{{ $row['objectId'] }}'    class='form-control ' /> 
