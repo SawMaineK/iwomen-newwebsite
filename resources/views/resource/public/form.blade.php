@@ -55,18 +55,23 @@
 											 		
 											 	</div>
 										  	</div> 
-											<div class="form-group   " >
-												<label for="Week Content" class=" control-label col-xs-12 col-md-4 text-left"> Week Content </label>
+											<div class="form-group {{ $errors->has('week_content') ? 'has-error' : '' }}  " >
+												<label for="Week Content" class=" control-label col-xs-12 col-md-4 text-left"> Week Content <span class="asterix"> * </span></label>
 												<div class="col-xs-12 col-md-7">
 											  		<div class='form col-xs-12'>
 						<?php $week_content = explode(",",$row['week_content']); ?>
 							<label class='checked checkbox-inline'>   
-							<input type='checkbox' name='week_content[]' value ='1'                                                                                                               class='' 
+							<input type='checkbox' name='week_content[]' value ='1' required                                                                                                              class='' 
 							@if(in_array('1',$week_content))checked @endif 
 					 />  
 							 </label> 
 					</div>
 											  		
+									@if ($errors->has("week_content"))
+										<span class="help-block">
+							                <strong>{{ $errors->first("week_content") }}</strong>
+							            </span>
+						            @endif
 											  		 
 											 	</div> 
 											 	<div class="col-xs-12 col-md-1">
@@ -105,38 +110,6 @@
 											 		
 											 	</div>
 										  	</div> 
-											<div class="form-group {{ $errors->has('resource_icon_img') ? 'has-error' : '' }}  " >
-												<label for="Resource Icon Img" class=" control-label col-xs-12 col-md-4 text-left"> Resource Icon Img <span class="asterix"> * </span></label>
-												<div class="col-xs-12 col-md-7">
-											  		<div class="form-control fileinput fileinput-new @if($row['resource_icon_img'] =='') required @endif " data-provides="fileinput" style="border: none;">
-		                            <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-		                            @if(file_exists('.resources_icon/'.$row['resource_icon_img']) && $row['resource_icon_img'] !='')
-		                            	<img src="{{asset('.resources_icon/'.$row["resource_icon_img"])}}" alt="" />
-		                            @else
-		                                <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" /> 
-		                            @endif
-		                            </div>
-		                            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
-		                            <div>
-		                                <span class="btn default btn-file">
-		                                    <span class="fileinput-new"> Select image </span>
-		                                    <span class="fileinput-exists"> Change </span>
-		                                    <input type="file" name="resource_icon_img" id="resource_icon_img"> </span>
-		                                <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
-		                            </div>
-		                        </div>
-											  		
-									@if ($errors->has("resource_icon_img"))
-										<span class="help-block">
-							                <strong>{{ $errors->first("resource_icon_img") }}</strong>
-							            </span>
-						            @endif
-											  		 
-											 	</div> 
-											 	<div class="col-xs-12 col-md-1">
-											 		
-											 	</div>
-										  	</div> 
 											<div class="form-group {{ $errors->has('resource_title_eng') ? 'has-error' : '' }}  " >
 												<label for="Resource Title Eng" class=" control-label col-xs-12 col-md-4 text-left"> Resource Title Eng <span class="asterix"> * </span></label>
 												<div class="col-xs-12 col-md-7">
@@ -145,6 +118,22 @@
 									@if ($errors->has("resource_title_eng"))
 										<span class="help-block">
 							                <strong>{{ $errors->first("resource_title_eng") }}</strong>
+							            </span>
+						            @endif
+											  		 
+											 	</div> 
+											 	<div class="col-xs-12 col-md-1">
+											 		
+											 	</div>
+										  	</div> 
+											<div class="form-group {{ $errors->has('resource_title_mm') ? 'has-error' : '' }}  " >
+												<label for="Resource Title Mm" class=" control-label col-xs-12 col-md-4 text-left"> Resource Title Mm <span class="asterix"> * </span></label>
+												<div class="col-xs-12 col-md-7">
+											  		<input type='text' name='resource_title_mm' id='resource_title_mm' value='{{ $row['resource_title_mm'] }}' required   class='form-control ' />
+											  		
+									@if ($errors->has("resource_title_mm"))
+										<span class="help-block">
+							                <strong>{{ $errors->first("resource_title_mm") }}</strong>
 							            </span>
 						            @endif
 											  		 
@@ -176,7 +165,7 @@
 		$("#author_img_path").jCombo("{!! url('resource/comboselect?filter=authors:authorImg:authorName') !!}",
 		{  selected_value : '{{ $row["author_img_path"] }}' });
 		
-		$("#resource_author_id").jCombo("{!! url('resource/comboselect?filter=authors:objectId:authorName') !!}",
+		$("#resource_author_id").jCombo("{!! url('resource/comboselect?filter=authors:authorName:authorName') !!}",
 		{  selected_value : '{{ $row["resource_author_id"] }}' });
 		 
 

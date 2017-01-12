@@ -28,22 +28,32 @@
 											 		
 											 	</div>
 										  	</div> 
-											<div class="form-group   " >
-												<label for="AuthorName" class=" control-label col-xs-12 col-md-4 text-left"> AuthorName </label>
+											<div class="form-group {{ $errors->has('authorName') ? 'has-error' : '' }}  " >
+												<label for="Author Name Eng" class=" control-label col-xs-12 col-md-4 text-left"> Author Name Eng <span class="asterix"> * </span></label>
 												<div class="col-xs-12 col-md-7">
-											  		<input type='text' name='authorName' id='authorName' value='{{ $row['authorName'] }}'    class='form-control ' />
+											  		<select name='authorName' rows='5' id='authorName' class='form-control select2 ' required  ></select>
 											  		
+									@if ($errors->has("authorName"))
+										<span class="help-block">
+							                <strong>{{ $errors->first("authorName") }}</strong>
+							            </span>
+						            @endif
 											  		 
 											 	</div> 
 											 	<div class="col-xs-12 col-md-1">
 											 		
 											 	</div>
 										  	</div> 
-											<div class="form-group   " >
-												<label for="AuthorNameMM" class=" control-label col-xs-12 col-md-4 text-left"> AuthorNameMM </label>
+											<div class="form-group {{ $errors->has('authorNameMM') ? 'has-error' : '' }}  " >
+												<label for="Author Name MM" class=" control-label col-xs-12 col-md-4 text-left"> Author Name MM <span class="asterix"> * </span></label>
 												<div class="col-xs-12 col-md-7">
-											  		<input type='text' name='authorNameMM' id='authorNameMM' value='{{ $row['authorNameMM'] }}'    class='form-control ' />
+											  		<select name='authorNameMM' rows='5' id='authorNameMM' class='form-control select2 ' required  ></select>
 											  		
+									@if ($errors->has("authorNameMM"))
+										<span class="help-block">
+							                <strong>{{ $errors->first("authorNameMM") }}</strong>
+							            </span>
+						            @endif
 											  		 
 											 	</div> 
 											 	<div class="col-xs-12 col-md-1">
@@ -53,7 +63,7 @@
 											<div class="form-group   " >
 												<label for="Author Id" class=" control-label col-xs-12 col-md-4 text-left"> Author Id </label>
 												<div class="col-xs-12 col-md-7">
-											  		<input type='text' name='author_id' id='author_id' value='{{ $row['author_id'] }}'    class='form-control ' />
+											  		<select name='author_id' rows='5' id='author_id' class='form-control select2 '   ></select>
 											  		
 											  		 
 											 	</div> 
@@ -64,23 +74,7 @@
 											<div class="form-group   " >
 												<label for="Author Img Url" class=" control-label col-xs-12 col-md-4 text-left"> Author Img Url </label>
 												<div class="col-xs-12 col-md-7">
-											  		<div class="form-control fileinput fileinput-new @if($row['author_img_url'] =='') required @endif " data-provides="fileinput" style="border: none;">
-		                            <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-		                            @if(file_exists('.authors_photo/'.$row['author_img_url']) && $row['author_img_url'] !='')
-		                            	<img src="{{asset('.authors_photo/'.$row["author_img_url"])}}" alt="" />
-		                            @else
-		                                <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" /> 
-		                            @endif
-		                            </div>
-		                            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
-		                            <div>
-		                                <span class="btn default btn-file">
-		                                    <span class="fileinput-new"> Select image </span>
-		                                    <span class="fileinput-exists"> Change </span>
-		                                    <input type="file" name="author_img_url" id="author_img_url"> </span>
-		                                <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
-		                            </div>
-		                        </div>
+											  		<select name='author_img_url' rows='5' id='author_img_url' class='form-control select2 '   ></select>
 											  		
 											  		 
 											 	</div> 
@@ -88,18 +82,23 @@
 											 		
 											 	</div>
 										  	</div> 
-											<div class="form-group   " >
-												<label for="IsAllow" class=" control-label col-xs-12 col-md-4 text-left"> IsAllow </label>
+											<div class="form-group {{ $errors->has('isAllow') ? 'has-error' : '' }}  " >
+												<label for="IsAllow" class=" control-label col-xs-12 col-md-4 text-left"> IsAllow <span class="asterix"> * </span></label>
 												<div class="col-xs-12 col-md-7">
 											  		<div class="form col-xs-12">
 							<label class='radio radio-inline'>
-							<input type='radio' name='isAllow' value ='1'  
+							<input type='radio' name='isAllow' value ='1' required 
 							@if($row['isAllow'] == '1') checked="checked" @endif > Show </label>
 							<label class='radio radio-inline'>
-							<input type='radio' name='isAllow' value ='0'  
+							<input type='radio' name='isAllow' value ='0' required 
 							@if($row['isAllow'] == '0') checked="checked" @endif > Not Show </label>
 					</div>
 											  		
+									@if ($errors->has("isAllow"))
+										<span class="help-block">
+							                <strong>{{ $errors->first("isAllow") }}</strong>
+							            </span>
+						            @endif
 											  		 
 											 	</div> 
 											 	<div class="col-xs-12 col-md-1">
@@ -233,6 +232,18 @@
    <script type="text/javascript">
 	$(document).ready(function() { 
 		
+		
+		$("#authorName").jCombo("{!! url('subresourcedetail/comboselect?filter=authors:authorName:authorName') !!}",
+		{  selected_value : '{{ $row["authorName"] }}' });
+		
+		$("#authorNameMM").jCombo("{!! url('subresourcedetail/comboselect?filter=authors:authorNameMM:authorNameMM') !!}",
+		{  selected_value : '{{ $row["authorNameMM"] }}' });
+		
+		$("#author_id").jCombo("{!! url('subresourcedetail/comboselect?filter=authors:objectId:authorName') !!}",
+		{  selected_value : '{{ $row["author_id"] }}' });
+		
+		$("#author_img_url").jCombo("{!! url('subresourcedetail/comboselect?filter=authors:authorImg:authorName') !!}",
+		{  selected_value : '{{ $row["author_img_url"] }}' });
 		
 		$("#resource_id").jCombo("{!! url('subresourcedetail/comboselect?filter=resources:objectId:resource_title_eng') !!}",
 		{  selected_value : '{{ $row["resource_id"] }}' });

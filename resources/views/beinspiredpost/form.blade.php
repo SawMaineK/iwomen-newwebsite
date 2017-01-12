@@ -10,7 +10,7 @@
             <div class="portlet-title">
                 @if(isset($pageTitle) && isset($pageAction))
                 <div class="caption">
-                    <i class="icon-windows8 font-blue-sharp"></i><span class="caption-subject font-blue-sharp bold uppercase">{{ $pageTitle }} : <small> {{ $pageAction }}</small></span>
+                    <i class="envelope font-blue-sharp"></i><span class="caption-subject font-blue-sharp bold uppercase">{{ $pageTitle }} : <small> {{ $pageAction }}</small></span>
                 </div>
                 @endif
                 <div class="actions">
@@ -39,7 +39,19 @@
 											<div class="form-group   " >
 												<label for="AudioFile" class=" control-label col-xs-12 col-md-4 text-left"> AudioFile </label>
 												<div class="col-xs-12 col-md-7">
-											  		<input type='text' name='audioFile' id='audioFile' value='{{ $row['audioFile'] }}'    class='form-control ' />
+											  		<div class="fileinput fileinput-new @if($row['audioFile'] =='') required @endif" data-provides="fileinput">
+	                                <div class="input-group input-large">
+	                                    <div class="form-control uneditable-input input-fixed input-medium" data-trigger="fileinput">
+	                                        <i class="fa fa-file fileinput-exists"></i>&nbsp;
+	                                        <span class="fileinput-filename"> </span>
+	                                    </div>
+	                                    <span class="input-group-addon btn default btn-file">
+	                                        <span class="fileinput-new"> Select file </span>
+	                                        <span class="fileinput-exists"> Change </span>
+	                                        <input type="file" name="audioFile" id="audioFile"> </span>
+	                                    <a href="javascript:;" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
+	                                </div>
+	                            </div>
 											  		
 											  		 
 											 	</div> 
@@ -479,10 +491,10 @@
     $(document).ready(function() {
          
         
-		$("#authorId").jCombo("{!! url('beinspiredpost/comboselect?filter=authors:id:authorName') !!}",
+		$("#authorId").jCombo("{!! url('beinspiredpost/comboselect?filter=authors:objectId:authorName') !!}",
 		{  selected_value : '{{ $row["authorId"] }}' });
 		
-		$("#postUploadName").jCombo("{!! url('beinspiredpost/comboselect?filter=authors:id:authorName') !!}",
+		$("#postUploadName").jCombo("{!! url('beinspiredpost/comboselect?filter=authors:authorName:authorName') !!}",
 		{  selected_value : '{{ $row["postUploadName"] }}' });
 		
 		$("#postUploadNameMM").jCombo("{!! url('beinspiredpost/comboselect?filter=authors:authorNameMM:authorNameMM') !!}",

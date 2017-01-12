@@ -7,7 +7,7 @@
         	<div class="portlet-title">
                 @if(isset($pageTitle) && isset($pageAction))
                 <div class="caption hidden-xs">
-                    <i class="fa fa-tag font-blue-sharp"></i><span class="caption-subject font-blue-sharp bold uppercase">{{ $pageTitle }} : <small> {{ $pageAction }}</small></span>
+                    <i class="info-circle font-blue-sharp"></i><span class="caption-subject font-blue-sharp bold uppercase">{{ $pageTitle }} : <small> {{ $pageAction }}</small></span>
                 </div>
                 @endif
                 <div class="grid actions">
