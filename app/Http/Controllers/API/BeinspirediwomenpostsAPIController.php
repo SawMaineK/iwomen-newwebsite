@@ -1,20 +1,20 @@
 <?php namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\Resource;
+use App\Models\Beinspirediwomenposts;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 use Validator, Input, Redirect ; 
 
 
-class ResourceAPIController extends Controller {
+class BeinspirediwomenpostsAPIController extends Controller {
 
-	public $module = 'resource';
+	public $module = 'beinspirediwomenposts';
 
 	public function __construct()
 	{
 		
-		$this->model = new Resource();
+		$this->model = new Beinspirediwomenposts();
 		$this->info = $this->model->makeInfo( $this->module);
 		$this->access = $this->model->validAccess($this->info['id']);	
 		
@@ -169,7 +169,7 @@ class ResourceAPIController extends Controller {
      */
     public function destroy($id)
     {
-		if(Resource::find($id))
+		if(Beinspirediwomenposts::find($id))
 		{
 			$this->model->destroy($id);
 			

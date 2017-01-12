@@ -19,8 +19,6 @@
 			<div class="form col-xs-12 col-md-12">
 						{!! Form::hidden('id', $row['id']) !!}
 
-						{!! Form::hidden('objectId', $row['objectId']) !!}
-
 											<div class="form-group {{ $errors->has('app_name') ? 'has-error' : '' }}  " >
 												<label for="App Name" class=" control-label col-xs-12 col-md-4 text-left"> App Name <span class="asterix"> * </span></label>
 												<div class="col-xs-12 col-md-7">
@@ -118,6 +116,22 @@
 							                <strong>{{ $errors->first("app_img") }}</strong>
 							            </span>
 						            @endif
+											  		 
+											 	</div> 
+											 	<div class="col-xs-12 col-md-1">
+											 		
+											 	</div>
+										  	</div> 
+											<div class="form-group   " >
+												<label for="Created At" class=" control-label col-xs-12 col-md-4 text-left"> Created At </label>
+												<div class="col-xs-12 col-md-7">
+											  		
+						<div class="input-group m-b" style="width:150px !important;">
+							{!! Form::text('created_at', $row['created_at'],array('class'=>'form-control datetime', 'style'=>'width:150px !important;')) !!}
+							<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+						</div>
+
+											  		
 											  		 
 											 	</div> 
 											 	<div class="col-xs-12 col-md-1">

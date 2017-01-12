@@ -1,17 +1,17 @@
 <?php namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Subresourcedetail;
+use App\Models\Iwomenposts;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 use Validator, Input, Redirect ; 
 
 
-class SubresourcedetailController extends Controller {
+class IwomenpostsController extends Controller {
 
 	protected $layout = "layouts.main";
 	protected $data = array();	
-	public $module = 'subresourcedetail';
+	public $module = 'iwomenposts';
 	static $per_page	= '10';
 
 	public function __construct()
@@ -19,7 +19,7 @@ class SubresourcedetailController extends Controller {
 
 		$this->middleware(function ($request, $next) {
             parent::__construct();
-            $this->model = new Subresourcedetail();
+            $this->model = new Iwomenposts();
 			
 			$this->info = $this->model->makeInfo( $this->module);
 			$this->access = $this->model->validAccess($this->info['id']);
@@ -28,7 +28,7 @@ class SubresourcedetailController extends Controller {
 				'pageTitle'	=> 	$this->info['title'],
 				'pageNote'	=>  $this->info['note'],
 				'pageAction'=>  'View All',
-				'pageModule'=> 'subresourcedetail',
+				'pageModule'=> 'iwomenposts',
 				'return'	=> self::returnUrl()
 				
 			);
@@ -82,7 +82,7 @@ class SubresourcedetailController extends Controller {
 		// Build pagination setting
 		$page = $page >= 1 && filter_var($page, FILTER_VALIDATE_INT) !== false ? $page : 1;	
 		$pagination = new Paginator($results['rows'], $results['total'], $params['limit']);	
-		$pagination->setPath('subresourcedetail');
+		$pagination->setPath('iwomenposts');
 		
 		$this->data['rowData']		= $results['rows'];
 		// Build Pagination 
@@ -101,7 +101,7 @@ class SubresourcedetailController extends Controller {
 		// Master detail link if any 
 		$this->data['subgrid']	= (isset($this->info['config']['subgrid']) ? $this->info['config']['subgrid'] : array()); 
 		// Render into template
-		return view('subresourcedetail.index',$this->data);
+		return view('iwomenposts.index',$this->data);
 	}	
 
 
@@ -127,13 +127,13 @@ class SubresourcedetailController extends Controller {
 			$this->data['row'] =  $row;
 			$this->data['pageAction'] =  'Edit';
 		} else {
-			$this->data['row'] = $this->model->getColumnTable('subResourceDetails'); 
+			$this->data['row'] = $this->model->getColumnTable('iwomenPosts'); 
 			$this->data['pageAction'] =  'Add New';
 		}
 		$this->data['fields'] 		=  \SiteHelpers::fieldLang($this->info['config']['forms']);
 		
 		$this->data['id'] = $id;
-		return view('subresourcedetail.form',$this->data);
+		return view('iwomenposts.form',$this->data);
 	}	
 
 	public function getShow( Request $request, $id = null)
@@ -153,9 +153,9 @@ class SubresourcedetailController extends Controller {
 			$this->data['access']		= $this->access;
 			$this->data['subgrid']	= (isset($this->info['config']['subgrid']) ? $this->info['config']['subgrid'] : array()); 
 			$this->data['prevnext'] = $this->model->prevNext($id);
-			return view('subresourcedetail.view',$this->data);
+			return view('iwomenposts.view',$this->data);
 		} else {
-			return Redirect::to('subresourcedetail')->with('messagetext','Record Not Found !')->with('msgstatus','error');					
+			return Redirect::to('iwomenposts')->with('messagetext','Record Not Found !')->with('msgstatus','error');					
 		}
 	}	
 
@@ -171,9 +171,9 @@ class SubresourcedetailController extends Controller {
 			
 			if(!is_null($request->input('apply')))
 			{
-				$return = 'subresourcedetail/update/'.$id.'?return='.self::returnUrl();
+				$return = 'iwomenposts/update/'.$id.'?return='.self::returnUrl();
 			} else {
-				$return = 'subresourcedetail?return='.self::returnUrl();
+				$return = 'iwomenposts?return='.self::returnUrl();
 			}
 
 			// Insert logs into database
@@ -188,7 +188,7 @@ class SubresourcedetailController extends Controller {
 			
 		} else {
 
-			return Redirect::to('subresourcedetail/update/'.$request->input('id'))->with('messagetext',\Lang::get('core.note_error'))->with('msgstatus','error')
+			return Redirect::to('iwomenposts/update/'.$request->input('id'))->with('messagetext',\Lang::get('core.note_error'))->with('msgstatus','error')
 			->withErrors($validator)->withInput();
 		}	
 	
@@ -208,11 +208,11 @@ class SubresourcedetailController extends Controller {
 			
 			\SiteHelpers::auditTrail( $request , "ID : ".implode(",",$request->input('ids'))."  , Has Been Removed Successfull");
 			// redirect
-			return Redirect::to('subresourcedetail?return='.self::returnUrl())
+			return Redirect::to('iwomenposts?return='.self::returnUrl())
         		->with('messagetext', \Lang::get('core.note_success_delete'))->with('msgstatus','success'); 
 	
 		} else {
-			return Redirect::to('subresourcedetail?return='.self::returnUrl())
+			return Redirect::to('iwomenposts?return='.self::returnUrl())
         		->with('messagetext','No Item Deleted')->with('msgstatus','error');				
 		}
 
@@ -221,8 +221,8 @@ class SubresourcedetailController extends Controller {
 	public static function display( )
 	{
 		$mode  = isset($_GET['view']) ? 'view' : 'default' ;
-		$model  = new Subresourcedetail();
-		$info = $model::makeInfo('subresourcedetail');
+		$model  = new Iwomenposts();
+		$info = $model::makeInfo('iwomenposts');
 
 		$data = array(
 			'pageTitle'	=> 	$info['title'],
@@ -239,7 +239,7 @@ class SubresourcedetailController extends Controller {
 				$data['row'] =  $row;
 				$data['fields'] 		=  \SiteHelpers::fieldLang($info['config']['grid']);
 				$data['id'] = $id;
-				return view('subresourcedetail.public.view',$data);
+				return view('iwomenposts.public.view',$data);
 			} 
 
 		} else {
@@ -263,7 +263,7 @@ class SubresourcedetailController extends Controller {
 			$pagination->setPath('');
 			$data['i']			= ($page * $params['limit'])- $params['limit']; 
 			$data['pagination'] = $pagination;
-			return view('subresourcedetail.public.index',$data);			
+			return view('iwomenposts.public.index',$data);			
 		}
 
 

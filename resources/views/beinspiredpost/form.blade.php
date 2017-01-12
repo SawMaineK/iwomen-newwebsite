@@ -58,17 +58,8 @@
 											 		
 											 	</div>
 										  	</div> 
-											<div class="form-group   " >
-												<label for="Comment Count" class=" control-label col-xs-12 col-md-4 text-left"> Comment Count </label>
-												<div class="col-xs-12 col-md-7">
-											  		<input type='text' name='comment_count' id='comment_count' value='{{ $row['comment_count'] }}'    class='form-control ' />
-											  		
-											  		 
-											 	</div> 
-											 	<div class="col-xs-12 col-md-1">
-											 		
-											 	</div>
-										  	</div> 
+						{!! Form::hidden('comment_count', $row['comment_count']) !!}
+
 											<div class="form-group   " >
 												<label for="Week Content" class=" control-label col-xs-12 col-md-4 text-left"> Week Content </label>
 												<div class="col-xs-12 col-md-7">
@@ -77,12 +68,12 @@
 							<label class='checked checkbox-inline'>   
 							<input type='checkbox' name='week_content[]' value ='1'                                       class='' 
 							@if(in_array('1',$week_content))checked @endif 
-					 /> Week Content Yes 
+					 /> Yes 
 							 </label> 
 							<label class='checked checkbox-inline'>   
 							<input type='checkbox' name='week_content[]' value ='0'                                       class='' 
 							@if(in_array('0',$week_content))checked @endif 
-					 />  
+					 /> No 
 							 </label> 
 					</div>
 											  		
@@ -258,17 +249,8 @@
 											 		
 											 	</div>
 										  	</div> 
-											<div class="form-group   " >
-												<label for="Likes" class=" control-label col-xs-12 col-md-4 text-left"> Likes </label>
-												<div class="col-xs-12 col-md-7">
-											  		<input type='text' name='likes' id='likes' value='{{ $row['likes'] }}'                                        class='form-control ' />
-											  		
-											  		 
-											 	</div> 
-											 	<div class="col-xs-12 col-md-1">
-											 		
-											 	</div>
-										  	</div> 
+						{!! Form::hidden('likes', $row['likes']) !!}
+
 											<div class="form-group   " >
 												<label for="PostUploadName" class=" control-label col-xs-12 col-md-4 text-left"> PostUploadName </label>
 												<div class="col-xs-12 col-md-7">
@@ -283,7 +265,7 @@
 											<div class="form-group   " >
 												<label for="PostUploadNameMM" class=" control-label col-xs-12 col-md-4 text-left"> PostUploadNameMM </label>
 												<div class="col-xs-12 col-md-7">
-											  		<input type='text' name='postUploadNameMM' id='postUploadNameMM' value='{{ $row['postUploadNameMM'] }}'    class='form-control ' />
+											  		<select name='postUploadNameMM' rows='5' id='postUploadNameMM' class='form-control select2 '   ></select>
 											  		
 											  		 
 											 	</div> 
@@ -367,17 +349,8 @@
 											 		
 											 	</div>
 										  	</div> 
-											<div class="form-group   " >
-												<label for="Share Count" class=" control-label col-xs-12 col-md-4 text-left"> Share Count </label>
-												<div class="col-xs-12 col-md-7">
-											  		<input type='text' name='share_count' id='share_count' value='{{ $row['share_count'] }}'    class='form-control ' />
-											  		
-											  		 
-											 	</div> 
-											 	<div class="col-xs-12 col-md-1">
-											 		
-											 	</div>
-										  	</div> 
+						{!! Form::hidden('share_count', $row['share_count']) !!}
+
 											<div class="form-group   " >
 												<label for="Suggest Section Eng" class=" control-label col-xs-12 col-md-4 text-left"> Suggest Section Eng </label>
 												<div class="col-xs-12 col-md-7">
@@ -511,6 +484,9 @@
 		
 		$("#postUploadName").jCombo("{!! url('beinspiredpost/comboselect?filter=authors:id:authorName') !!}",
 		{  selected_value : '{{ $row["postUploadName"] }}' });
+		
+		$("#postUploadNameMM").jCombo("{!! url('beinspiredpost/comboselect?filter=authors:authorNameMM:authorNameMM') !!}",
+		{  selected_value : '{{ $row["postUploadNameMM"] }}' });
 		
 		$("#post_author_role").jCombo("{!! url('beinspiredpost/comboselect?filter=authors:authorTitleEng:authorTitleEng') !!}",
 		{  selected_value : '{{ $row["post_author_role"] }}' });

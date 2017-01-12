@@ -27,15 +27,33 @@ class SubresourcedetailAPIController extends Controller {
      */
     public function index(Request $request)
     {
-    	$sort 		= (!is_null($request->input('sort')) ? $request->input('sort') : 'id'); 
-		$order 		= (!is_null($request->input('order')) ? $request->input('order') : 'asc');
-		$offset 	= (!is_null($request->input('offset')) ? $request->input('offset') : 1);
-		$limit 		= (!is_null($request->input('limit')) ? $request->input('limit') : 12);
+    	$sort = (!is_null($request->input('sort')) ? $request->input('sort') : 'id'); 
+		$order = (!is_null($request->input('order')) ? $request->input('order') : 'asc');
+		// End Filter sort and order for query 
+		// Filter Search for query		
+		$filter = '';	
+		if(!is_null($request->input('search')))
+		{
+			$search = 	$this->buildSearch('maps');
+			$filter = $search['param'];
+		} 
 
-		$offset  = ($offset - 1) * $limit;
-
-		$rows = Subresourcedetail::orderBy($sort,$order)->offset($offset)->limit($limit)->get();
-				
+		
+		$page = $request->input('page', 1);
+		$params = array(
+			'page'		=> $page ,
+			'limit'		=> (!is_null($request->input('rows')) ? filter_var($request->input('rows'),FILTER_VALIDATE_INT) : 10 ) ,
+			'sort'		=> $sort ,
+			'order'		=> $order,
+			'params'	=> $filter,
+			'global'	=> 1,
+		);
+		// Get Query 
+		$results = $this->model->getRows( $params );
+		$rows = [];
+		foreach ($results['rows'] as $key => $row) {
+			$rows[] = \SiteHelpers::formatAPI($row, $this->info['config']);
+		}
 		return response()->json($rows);
     }
 
@@ -76,7 +94,7 @@ class SubresourcedetailAPIController extends Controller {
 			
 		} else {
 
-			return response()->json($validator, 400);
+			return response()->json($validator->errors()->all(), 400);
 		}
     }
 
@@ -88,10 +106,10 @@ class SubresourcedetailAPIController extends Controller {
      */
     public function show($id)
     {
-        $row = Subresourcedetail::find($id);
+        $row = $this->model->getRow($id);
 		if($row)
 		{
-			return response()->json($row);
+			return response()->json(\SiteHelpers::formatAPI($row, $this->info['config']));
 		} else {
 			return response()->json('Record Not Found !', 400);					
 		}
@@ -139,7 +157,7 @@ class SubresourcedetailAPIController extends Controller {
 			
 		} else {
 
-			return response()->json($validator, 400);
+			return response()->json($validator->errors()->all(), 400);
 		}
     }
 
