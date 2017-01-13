@@ -10,7 +10,7 @@
             <div class="portlet-title">
                 @if(isset($pageTitle) && isset($pageAction))
                 <div class="caption">
-                    <i class="icon-windows8 font-blue-sharp"></i><span class="caption-subject font-blue-sharp bold uppercase">{{ $pageTitle }} : <small> {{ $pageAction }}</small></span>
+                    <i class="female font-blue-sharp"></i><span class="caption-subject font-blue-sharp bold uppercase">{{ $pageTitle }} : <small> {{ $pageAction }}</small></span>
                 </div>
                 @endif
                 <div class="actions">
@@ -60,7 +60,7 @@
 							                <strong>{{ $errors->first("app_link") }}</strong>
 							            </span>
 						            @endif
-											  		 
+											  		<span class="help-block">eg. https://play.google.com/store/apps/details?id=org.undp_iwomen.iwomen</span> 
 											 	</div> 
 											 	<div class="col-xs-12 col-md-1">
 											 		
@@ -76,7 +76,7 @@
 							                <strong>{{ $errors->first("app_package_name") }}</strong>
 							            </span>
 						            @endif
-											  		 
+											  		<span class="help-block">eg. org.undp_iwomen.iwomen</span> 
 											 	</div> 
 											 	<div class="col-xs-12 col-md-1">
 											 		

@@ -10,7 +10,7 @@
             <div class="portlet-title">
                 @if(isset($pageTitle) && isset($pageAction))
                 <div class="caption">
-                    <i class="tag font-blue-sharp"></i><span class="caption-subject font-blue-sharp bold uppercase">{{ $pageTitle }} : <small> {{ $pageAction }}</small></span>
+                    <i class="icon-tag font-blue-sharp"></i><span class="caption-subject font-blue-sharp bold uppercase">{{ $pageTitle }} : <small> {{ $pageAction }}</small></span>
                 </div>
                 @endif
                 <div class="actions">
@@ -32,17 +32,8 @@
                 @endif
                 <div class="row">
                     <div class="form col-xs-12 col-md-12">
-											<div class="form-group   " >
-												<label for="Id" class=" control-label col-xs-12 col-md-4 text-left"> Id </label>
-												<div class="col-xs-12 col-md-7">
-											  		<input type='text' name='id' id='id' value='{{ $row['id'] }}'    class='form-control ' />
-											  		
-											  		 
-											 	</div> 
-											 	<div class="col-xs-12 col-md-1">
-											 		
-											 	</div>
-										  	</div> 
+						{!! Form::hidden('id', $row['id']) !!}
+
 											<div class="form-group {{ $errors->has('authorName') ? 'has-error' : '' }}  " >
 												<label for="Author Name Eng" class=" control-label col-xs-12 col-md-4 text-left"> Author Name Eng <span class="asterix"> * </span></label>
 												<div class="col-xs-12 col-md-7">
@@ -86,11 +77,16 @@
 											 		
 											 	</div>
 										  	</div> 
-											<div class="form-group   " >
-												<label for="Author Img Url" class=" control-label col-xs-12 col-md-4 text-left"> Author Img Url </label>
+											<div class="form-group {{ $errors->has('author_img_url') ? 'has-error' : '' }}  " >
+												<label for="Author Img Url" class=" control-label col-xs-12 col-md-4 text-left"> Author Img Url <span class="asterix"> * </span></label>
 												<div class="col-xs-12 col-md-7">
-											  		<select name='author_img_url' rows='5' id='author_img_url' class='form-control select2 '   ></select>
+											  		<select name='author_img_url' rows='5' id='author_img_url' class='form-control select2 ' required  ></select>
 											  		
+									@if ($errors->has("author_img_url"))
+										<span class="help-block">
+							                <strong>{{ $errors->first("author_img_url") }}</strong>
+							            </span>
+						            @endif
 											  		 
 											 	</div> 
 											 	<div class="col-xs-12 col-md-1">
@@ -126,8 +122,8 @@
 
 						{!! Form::hidden('share_count', $row['share_count']) !!}
 
-											<div class="form-group   " >
-												<label for="Posted Date" class=" control-label col-xs-12 col-md-4 text-left"> Posted Date </label>
+											<div class="form-group {{ $errors->has('posted_date') ? 'has-error' : '' }}  " >
+												<label for="Posted Date" class=" control-label col-xs-12 col-md-4 text-left"> Posted Date <span class="asterix"> * </span></label>
 												<div class="col-xs-12 col-md-7">
 											  		
 						<div class="input-group m-b" style="width:150px !important;">
@@ -136,69 +132,97 @@
 						</div>
 
 											  		
+									@if ($errors->has("posted_date"))
+										<span class="help-block">
+							                <strong>{{ $errors->first("posted_date") }}</strong>
+							            </span>
+						            @endif
 											  		 
 											 	</div> 
 											 	<div class="col-xs-12 col-md-1">
 											 		
 											 	</div>
 										  	</div> 
-											<div class="form-group   " >
-												<label for="Resource Id" class=" control-label col-xs-12 col-md-4 text-left"> Resource Id </label>
+											<div class="form-group {{ $errors->has('resource_id') ? 'has-error' : '' }}  " >
+												<label for="Resource Id" class=" control-label col-xs-12 col-md-4 text-left"> Resource Id <span class="asterix"> * </span></label>
 												<div class="col-xs-12 col-md-7">
-											  		<select name='resource_id' rows='5' id='resource_id' class='form-control select2 '   ></select>
+											  		<select name='resource_id' rows='5' id='resource_id' class='form-control select2 ' required  ></select>
 											  		
+									@if ($errors->has("resource_id"))
+										<span class="help-block">
+							                <strong>{{ $errors->first("resource_id") }}</strong>
+							            </span>
+						            @endif
 											  		 
 											 	</div> 
 											 	<div class="col-xs-12 col-md-1">
 											 		
 											 	</div>
 										  	</div> 
-											<div class="form-group   " >
-												<label for="Sub Resource Content Eng" class=" control-label col-xs-12 col-md-4 text-left"> Sub Resource Content Eng </label>
+											<div class="form-group {{ $errors->has('sub_resouce_content_eng') ? 'has-error' : '' }}  " >
+												<label for="Sub Resource Content Eng" class=" control-label col-xs-12 col-md-4 text-left"> Sub Resource Content Eng <span class="asterix"> * </span></label>
 												<div class="col-xs-12 col-md-7">
 											  		
-						<textarea name='sub_resouce_content_eng' rows='5' id='sub_resouce_content_eng' class='form-control '   >{{ $row['sub_resouce_content_eng'] }}</textarea>
+						<textarea name='sub_resouce_content_eng' rows='5' id='sub_resouce_content_eng' class='form-control ' required  >{{ $row['sub_resouce_content_eng'] }}</textarea>
 
 											  		
+									@if ($errors->has("sub_resouce_content_eng"))
+										<span class="help-block">
+							                <strong>{{ $errors->first("sub_resouce_content_eng") }}</strong>
+							            </span>
+						            @endif
 											  		 
 											 	</div> 
 											 	<div class="col-xs-12 col-md-1">
 											 		
 											 	</div>
 										  	</div> 
-											<div class="form-group   " >
-												<label for="Sub Resource Content Mm" class=" control-label col-xs-12 col-md-4 text-left"> Sub Resource Content Mm </label>
+											<div class="form-group {{ $errors->has('sub_resouce_content_mm') ? 'has-error' : '' }}  " >
+												<label for="Sub Resource Content Mm" class=" control-label col-xs-12 col-md-4 text-left"> Sub Resource Content Mm <span class="asterix"> * </span></label>
 												<div class="col-xs-12 col-md-7">
 											  		
-						<textarea name='sub_resouce_content_mm' rows='5' id='sub_resouce_content_mm' class='form-control '   >{{ $row['sub_resouce_content_mm'] }}</textarea>
+						<textarea name='sub_resouce_content_mm' rows='5' id='sub_resouce_content_mm' class='form-control ' required  >{{ $row['sub_resouce_content_mm'] }}</textarea>
 
 											  		
+									@if ($errors->has("sub_resouce_content_mm"))
+										<span class="help-block">
+							                <strong>{{ $errors->first("sub_resouce_content_mm") }}</strong>
+							            </span>
+						            @endif
 											  		 
 											 	</div> 
 											 	<div class="col-xs-12 col-md-1">
 											 		
 											 	</div>
 										  	</div> 
-											<div class="form-group   " >
-												<label for="Sub Resource Title Eng" class=" control-label col-xs-12 col-md-4 text-left"> Sub Resource Title Eng </label>
+											<div class="form-group {{ $errors->has('sub_resource_title_eng') ? 'has-error' : '' }}  " >
+												<label for="Sub Resource Title Eng" class=" control-label col-xs-12 col-md-4 text-left"> Sub Resource Title Eng <span class="asterix"> * </span></label>
 												<div class="col-xs-12 col-md-7">
+											  		<input type='text' name='sub_resource_title_eng' id='sub_resource_title_eng' value='{{ $row['sub_resource_title_eng'] }}' required   class='form-control ' />
 											  		
-						<textarea name='sub_resource_title_eng' rows='5' id='sub_resource_title_eng' class='form-control '   >{{ $row['sub_resource_title_eng'] }}</textarea>
-
-											  		
+									@if ($errors->has("sub_resource_title_eng"))
+										<span class="help-block">
+							                <strong>{{ $errors->first("sub_resource_title_eng") }}</strong>
+							            </span>
+						            @endif
 											  		 
 											 	</div> 
 											 	<div class="col-xs-12 col-md-1">
 											 		
 											 	</div>
 										  	</div> 
-											<div class="form-group   " >
-												<label for="Sub Resource Title Mm" class=" control-label col-xs-12 col-md-4 text-left"> Sub Resource Title Mm </label>
+											<div class="form-group {{ $errors->has('sub_resource_title_mm') ? 'has-error' : '' }}  " >
+												<label for="Sub Resource Title Mm" class=" control-label col-xs-12 col-md-4 text-left"> Sub Resource Title Mm <span class="asterix"> * </span></label>
 												<div class="col-xs-12 col-md-7">
 											  		
-						<textarea name='sub_resource_title_mm' rows='5' id='sub_resource_title_mm' class='form-control '   >{{ $row['sub_resource_title_mm'] }}</textarea>
+						<textarea name='sub_resource_title_mm' rows='5' id='sub_resource_title_mm' class='form-control ' required  >{{ $row['sub_resource_title_mm'] }}</textarea>
 
 											  		
+									@if ($errors->has("sub_resource_title_mm"))
+										<span class="help-block">
+							                <strong>{{ $errors->first("sub_resource_title_mm") }}</strong>
+							            </span>
+						            @endif
 											  		 
 											 	</div> 
 											 	<div class="col-xs-12 col-md-1">
@@ -208,21 +232,9 @@
 											<div class="form-group   " >
 												<label for="AudioFile" class=" control-label col-xs-12 col-md-4 text-left"> AudioFile </label>
 												<div class="col-xs-12 col-md-7">
-											  		<div class="fileinput fileinput-new @if($row['audioFile'] =='') required @endif" data-provides="fileinput">
-	                                <div class="input-group input-large">
-	                                    <div class="form-control uneditable-input input-fixed input-medium" data-trigger="fileinput">
-	                                        <i class="fa fa-file fileinput-exists"></i>&nbsp;
-	                                        <span class="fileinput-filename"> </span>
-	                                    </div>
-	                                    <span class="input-group-addon btn default btn-file">
-	                                        <span class="fileinput-new"> Select file </span>
-	                                        <span class="fileinput-exists"> Change </span>
-	                                        <input type="file" name="audioFile" id="audioFile"> </span>
-	                                    <a href="javascript:;" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
-	                                </div>
-	                            </div>
+											  		<input type='text' name='audioFile' id='audioFile' value='{{ $row['audioFile'] }}'    class='form-control ' />
 											  		
-											  		 
+											  		<span class="help-block">full links of mp3 file</span> 
 											 	</div> 
 											 	<div class="col-xs-12 col-md-1">
 											 		

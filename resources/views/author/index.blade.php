@@ -5,13 +5,12 @@
 
         <div class="portlet light bordered animated fadeInUp ">
         	<div class="portlet-title">
-                @if(isset($pageTitle) && isset($pageNote))
-                <div class="caption">
-                    <i class="icon-grid font-blue-sharp"></i>
-                    <span class="caption-subject font-blue-sharp bold uppercase">{{ $pageTitle }} : <small> {{ $pageNote }}</small></span>
+                @if(isset($pageTitle) && isset($pageAction))
+                <div class="caption hidden-xs">
+                    <i class="icon-user font-blue-sharp"></i><span class="caption-subject font-blue-sharp bold uppercase">{{ $pageTitle }} : <small> {{ $pageAction }}</small></span>
                 </div>
                 @endif
-                <div class="actions">
+                <div class="grid actions">
                     @if($access['is_add'] ==1)
                     <a href="{{ URL::to('author/update?return='.$return) }}" class="tips btn btn-xs btn-success" title="{{ Lang::get('core.btn_create') }}">
                         <i class="fa  fa-plus "></i> <span class="hidden-xs">{{ Lang::get('core.btn_create') }}</span></a>
@@ -25,8 +24,8 @@
                         <i class="fa fa-cloud-download"></i> <span class="hidden-xs">{{ Lang::get('core.btn_download') }}</span></a>
                     @endif
 
-                    <a href="{{ url($pageModule) }}" class=" tips btn btn-xs btn-danger" title="{{ Lang::get('core.btn_clearsearch') }}"><i class="fa fa-spinner"></i> <span class="hidden-xs"> {{ Lang::get('core.btn_clear') }}</span></a> @if(Session::get('gid') ==1)
-                    <a href="{{ URL::to('http://developers.myapibox.com/sximo/module/config/'.$pageModule) }}" class="tips btn btn-xs" title=" {{ Lang::get('core.btn_config') }}"><i class="fa  fa-ellipsis-v"></i></a> @endif
+                    <a href="{{ url($pageModule) }}" class=" tips btn btn-xs btn-default" title="{{ Lang::get('core.btn_clearsearch') }}"><i class="fa fa-spinner"></i> <span class="hidden-xs"> {{ Lang::get('core.btn_clear') }}</span></a> @if(Session::get('gid') ==1)
+                    <a href="{{ URL::to('http://developers.myapibox.com/core/module/config/'.$pageModule) }}" class="tips btn btn-xs" title=" {{ Lang::get('core.btn_config') }}"><i class="fa  fa-ellipsis-v"></i></a> @endif
                 </div>
             </div>
 

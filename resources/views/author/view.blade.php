@@ -5,20 +5,19 @@
     <div class="page-content-wrapper m-t">
 
         <div class="portlet light bordered animated fadeInUp ">
-        	<div class="portlet-title">
-                @if(isset($pageTitle) && isset($pageNote))
+        	<div class="portlet-title hidden-xs">
+                @if(isset($pageTitle) && isset($pageAction))
                 <div class="caption">
-                    <i class="icon-grid font-blue-sharp"></i>
-                    <span class="caption-subject font-blue-sharp bold uppercase">{{ $pageTitle }} : <small> {{ $pageNote }}</small></span>
+                    <i class="icon-user font-blue-sharp"></i><span class="caption-subject font-blue-sharp bold uppercase">{{ $pageTitle }} : <small> {{ $pageAction }}</small></span>
                 </div>
                 @endif
-                <div class="actions">
+                <div class="actions ">
             		<a href="{{ url('author?return='.$return) }}" class="tips btn btn-xs btn-default" title="{{ Lang::get('core.btn_back') }}"><i class="fa  fa-arrow-left"></i></a> @if($access['is_add'] ==1)
                     <a href="{{ url('author/update/'.$id.'?return='.$return) }}" class="tips btn btn-xs btn-default" title="{{ Lang::get('core.btn_edit') }}"><i class="fa  fa-pencil"></i></a> @endif
                     <a href="{{ ($prevnext['prev'] != '' ? url('author/show/'.$prevnext['prev'].'?return='.$return ) : '#') }}" class="tips btn btn-xs btn-default"><i class="fa fa-arrow-left"></i>  </a>
                     <a href="{{ ($prevnext['next'] != '' ? url('author/show/'.$prevnext['next'].'?return='.$return ) : '#') }}" class="tips btn btn-xs btn-default"> <i class="fa fa-arrow-right"></i> </a>
                     @if(Session::get('gid') ==1)
-                    <a href="{{ URL::to('http://developers.myapibox.com/sximo/module/config/'.$pageModule) }}" class="tips btn btn-xs btn-default" title=" {{ Lang::get('core.btn_config') }}"><i class="fa  fa-ellipsis-v"></i></a> @endif
+                    <a href="{{ URL::to('http://developers.myapibox.com/core/module/config/'.$pageModule) }}" class="tips btn btn-xs btn-default" title=" {{ Lang::get('core.btn_config') }}"><i class="fa  fa-ellipsis-v"></i></a> @endif
                 </div>
             </div>
             <div class="portlet-body">

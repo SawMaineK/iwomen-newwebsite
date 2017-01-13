@@ -39,7 +39,23 @@
 											<div class="form-group {{ $errors->has('author_img_path') ? 'has-error' : '' }}  " >
 												<label for="Author Img Path" class=" control-label col-xs-12 col-md-4 text-left"> Author Img Path <span class="asterix"> * </span></label>
 												<div class="col-xs-12 col-md-7">
-											  		<select name='author_img_path' rows='5' id='author_img_path' class='form-control select2 ' required                                                                          ></select>
+											  		<div class="form-control fileinput fileinput-new @if($row['author_img_path'] =='') required @endif " data-provides="fileinput" style="border: none;">
+		                            <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+		                            @if(file_exists('.authors_photo/'.$row['author_img_path']) && $row['author_img_path'] !='')
+		                            	<img src="{{asset('.authors_photo/'.$row["author_img_path"])}}" alt="" />
+		                            @else
+		                                <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" /> 
+		                            @endif
+		                            </div>
+		                            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
+		                            <div>
+		                                <span class="btn default btn-file">
+		                                    <span class="fileinput-new"> Select image </span>
+		                                    <span class="fileinput-exists"> Change </span>
+		                                    <input type="file" name="author_img_path" id="author_img_path"> </span>
+		                                <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
+		                            </div>
+		                        </div>
 											  		
 									@if ($errors->has("author_img_path"))
 										<span class="help-block">
@@ -52,18 +68,23 @@
 											 		
 											 	</div>
 										  	</div> 
-											<div class="form-group   " >
-												<label for="IsAllow" class=" control-label col-xs-12 col-md-4 text-left"> IsAllow </label>
+											<div class="form-group {{ $errors->has('isAllow') ? 'has-error' : '' }}  " >
+												<label for="IsAllow" class=" control-label col-xs-12 col-md-4 text-left"> IsAllow <span class="asterix"> * </span></label>
 												<div class="col-xs-12 col-md-7">
-											  		<div class='form col-xs-12'>
-						<?php $isAllow = explode(",",$row['isAllow']); ?>
-							<label class='checked checkbox-inline'>   
-							<input type='checkbox' name='isAllow[]' value ='1'                                                                           class='' 
-							@if(in_array('1',$isAllow))checked @endif 
-					 />  
-							 </label> 
+											  		<div class="form col-xs-12">
+							<label class='radio radio-inline'>
+							<input type='radio' name='isAllow' value ='1' required                                                                         
+							@if($row['isAllow'] == '1') checked="checked" @endif > Yes </label>
+							<label class='radio radio-inline'>
+							<input type='radio' name='isAllow' value ='0' required                                                                         
+							@if($row['isAllow'] == '0') checked="checked" @endif > No </label>
 					</div>
 											  		
+									@if ($errors->has("isAllow"))
+										<span class="help-block">
+							                <strong>{{ $errors->first("isAllow") }}</strong>
+							            </span>
+						            @endif
 											  		 
 											 	</div> 
 											 	<div class="col-xs-12 col-md-1">
@@ -73,13 +94,13 @@
 											<div class="form-group {{ $errors->has('week_content') ? 'has-error' : '' }}  " >
 												<label for="Week Content" class=" control-label col-xs-12 col-md-4 text-left"> Week Content <span class="asterix"> * </span></label>
 												<div class="col-xs-12 col-md-7">
-											  		<div class='form col-xs-12'>
-						<?php $week_content = explode(",",$row['week_content']); ?>
-							<label class='checked checkbox-inline'>   
-							<input type='checkbox' name='week_content[]' value ='1' required                                                                                                              class='' 
-							@if(in_array('1',$week_content))checked @endif 
-					 />  
-							 </label> 
+											  		<div class="form col-xs-12">
+							<label class='radio radio-inline'>
+							<input type='radio' name='week_content' value ='1' required                                                                                                             
+							@if($row['week_content'] == '1') checked="checked" @endif > Yes </label>
+							<label class='radio radio-inline'>
+							<input type='radio' name='week_content' value ='0' required                                                                                                             
+							@if($row['week_content'] == '0') checked="checked" @endif > No </label>
 					</div>
 											  		
 									@if ($errors->has("week_content"))
@@ -182,9 +203,6 @@
     $(document).ready(function() {
          
         
-		$("#author_img_path").jCombo("{!! url('resource/comboselect?filter=authors:authorImg:authorName') !!}",
-		{  selected_value : '{{ $row["author_img_path"] }}' });
-		
 		$("#resource_author_id").jCombo("{!! url('resource/comboselect?filter=authors:authorName:authorName') !!}",
 		{  selected_value : '{{ $row["resource_author_id"] }}' });
 		

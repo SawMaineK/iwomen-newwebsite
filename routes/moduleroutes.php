@@ -70,32 +70,18 @@
 	Route::post('sisterdownloadapps/filter', 'SisterdownloadappsController@postFilter');
 	Route::get('sisterdownloadapps/lookup/{master_detail}', 'SisterdownloadappsController@getLookup');
 
-	Route::get('iwomenposts', 'IwomenpostsController@getIndex');
-	Route::get('iwomenposts/update', 'IwomenpostsController@getUpdate');
-	Route::get('iwomenposts/update/{id}', 'IwomenpostsController@getUpdate');
-	Route::get('iwomenposts/show/{id}', 'IwomenpostsController@getShow');
-	Route::post('iwomenposts/save', 'IwomenpostsController@postSave');
-	Route::post('iwomenposts/delete/{id}', 'IwomenpostsController@postDelete');
-	Route::get('iwomenposts/savepublic', 'IwomenpostsController@postSavepublic');
-	Route::get('iwomenposts/download', 'IwomenpostsController@getDownload');
-	Route::get('iwomenposts/search', 'IwomenpostsController@getSearch');
-	Route::get('iwomenposts/comboselect', 'IwomenpostsController@getComboselect');
-	Route::get('iwomenposts/removefiles', 'IwomenpostsController@getComboselect');
-	Route::post('iwomenposts/filter', 'IwomenpostsController@postFilter');
-	Route::get('iwomenposts/lookup/{master_detail}', 'IwomenpostsController@getLookup');
-
-	Route::get('beinspirediwomenposts', 'BeinspirediwomenpostsController@getIndex');
-	Route::get('beinspirediwomenposts/update', 'BeinspirediwomenpostsController@getUpdate');
-	Route::get('beinspirediwomenposts/update/{id}', 'BeinspirediwomenpostsController@getUpdate');
-	Route::get('beinspirediwomenposts/show/{id}', 'BeinspirediwomenpostsController@getShow');
-	Route::post('beinspirediwomenposts/save', 'BeinspirediwomenpostsController@postSave');
-	Route::post('beinspirediwomenposts/delete/{id}', 'BeinspirediwomenpostsController@postDelete');
-	Route::get('beinspirediwomenposts/savepublic', 'BeinspirediwomenpostsController@postSavepublic');
-	Route::get('beinspirediwomenposts/download', 'BeinspirediwomenpostsController@getDownload');
-	Route::get('beinspirediwomenposts/search', 'BeinspirediwomenpostsController@getSearch');
-	Route::get('beinspirediwomenposts/comboselect', 'BeinspirediwomenpostsController@getComboselect');
-	Route::get('beinspirediwomenposts/removefiles', 'BeinspirediwomenpostsController@getComboselect');
-	Route::post('beinspirediwomenposts/filter', 'BeinspirediwomenpostsController@postFilter');
-	Route::get('beinspirediwomenposts/lookup/{master_detail}', 'BeinspirediwomenpostsController@getLookup');
+	Route::get('tlgprofiles', 'TlgprofilesController@getIndex');
+	Route::get('tlgprofiles/update', 'TlgprofilesController@getUpdate');
+	Route::get('tlgprofiles/update/{id}', 'TlgprofilesController@getUpdate');
+	Route::get('tlgprofiles/show/{id}', 'TlgprofilesController@getShow');
+	Route::post('tlgprofiles/save', 'TlgprofilesController@postSave');
+	Route::post('tlgprofiles/delete/{id}', 'TlgprofilesController@postDelete');
+	Route::get('tlgprofiles/savepublic', 'TlgprofilesController@postSavepublic');
+	Route::get('tlgprofiles/download', 'TlgprofilesController@getDownload');
+	Route::get('tlgprofiles/search', 'TlgprofilesController@getSearch');
+	Route::get('tlgprofiles/comboselect', 'TlgprofilesController@getComboselect');
+	Route::get('tlgprofiles/removefiles', 'TlgprofilesController@getComboselect');
+	Route::post('tlgprofiles/filter', 'TlgprofilesController@postFilter');
+	Route::get('tlgprofiles/lookup/{master_detail}', 'TlgprofilesController@getLookup');
 
 ?>

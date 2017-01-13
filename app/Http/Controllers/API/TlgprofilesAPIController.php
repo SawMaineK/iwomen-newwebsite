@@ -1,20 +1,20 @@
 <?php namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\Iwomenposts;
+use App\Models\Tlgprofiles;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
 use Validator, Input, Redirect ; 
 
 
-class IwomenpostsAPIController extends Controller {
+class TlgprofilesAPIController extends Controller {
 
-	public $module = 'iwomenposts';
+	public $module = 'tlgprofiles';
 
 	public function __construct()
 	{
 		
-		$this->model = new Iwomenposts();
+		$this->model = new Tlgprofiles();
 		$this->info = $this->model->makeInfo( $this->module);
 		$this->access = $this->model->validAccess($this->info['id']);	
 		
@@ -169,7 +169,7 @@ class IwomenpostsAPIController extends Controller {
      */
     public function destroy($id)
     {
-		if(Iwomenposts::find($id))
+		if(Tlgprofiles::find($id))
 		{
 			$this->model->destroy($id);
 			

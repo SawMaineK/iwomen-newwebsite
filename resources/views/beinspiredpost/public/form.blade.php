@@ -24,21 +24,9 @@
 											<div class="form-group   " >
 												<label for="AudioFile" class=" control-label col-xs-12 col-md-4 text-left"> AudioFile </label>
 												<div class="col-xs-12 col-md-7">
-											  		<div class="fileinput fileinput-new @if($row['audioFile'] =='') required @endif" data-provides="fileinput">
-	                                <div class="input-group input-large">
-	                                    <div class="form-control uneditable-input input-fixed input-medium" data-trigger="fileinput">
-	                                        <i class="fa fa-file fileinput-exists"></i>&nbsp;
-	                                        <span class="fileinput-filename"> </span>
-	                                    </div>
-	                                    <span class="input-group-addon btn default btn-file">
-	                                        <span class="fileinput-new"> Select file </span>
-	                                        <span class="fileinput-exists"> Change </span>
-	                                        <input type="file" name="audioFile" id="audioFile"> </span>
-	                                    <a href="javascript:;" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
-	                                </div>
-	                            </div>
+											  		<input type='text' name='audioFile' id='audioFile' value='{{ $row['audioFile'] }}'    class='form-control ' />
 											  		
-											  		 
+											  		<span class="help-block">full links of mp3 file</span> 
 											 	</div> 
 											 	<div class="col-xs-12 col-md-1">
 											 		
@@ -157,8 +145,8 @@
 												<div class="col-xs-12 col-md-7">
 											  		<div class="form-control fileinput fileinput-new @if($row['credit_logo_url'] =='') required @endif " data-provides="fileinput" style="border: none;">
 		                            <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-		                            @if(file_exists('.credit_logo/'.$row['credit_logo_url']) && $row['credit_logo_url'] !='')
-		                            	<img src="{{asset('.credit_logo/'.$row["credit_logo_url"])}}" alt="" />
+		                            @if(file_exists('.authors_photo/'.$row['credit_logo_url']) && $row['credit_logo_url'] !='')
+		                            	<img src="{{asset('.authors_photo/'.$row["credit_logo_url"])}}" alt="" />
 		                            @else
 		                                <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" /> 
 		                            @endif
@@ -397,7 +385,7 @@
 												<div class="col-xs-12 col-md-7">
 											  		<input type='text' name='videoId' id='videoId' value='{{ $row['videoId'] }}'    class='form-control ' />
 											  		
-											  		 
+											  		<span class="help-block">Youtube video id v=nmlByEIMLkk, eg. nmlByEIMLkk</span> 
 											 	</div> 
 											 	<div class="col-xs-12 col-md-1">
 											 		

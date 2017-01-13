@@ -45,7 +45,7 @@
 							                <strong>{{ $errors->first("app_link") }}</strong>
 							            </span>
 						            @endif
-											  		 
+											  		<span class="help-block">eg. https://play.google.com/store/apps/details?id=org.undp_iwomen.iwomen</span> 
 											 	</div> 
 											 	<div class="col-xs-12 col-md-1">
 											 		
@@ -61,7 +61,7 @@
 							                <strong>{{ $errors->first("app_package_name") }}</strong>
 							            </span>
 						            @endif
-											  		 
+											  		<span class="help-block">eg. org.undp_iwomen.iwomen</span> 
 											 	</div> 
 											 	<div class="col-xs-12 col-md-1">
 											 		

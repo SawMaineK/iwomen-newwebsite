@@ -12,15 +12,15 @@
                 @endif
                 <div class="grid actions">
                     @if($access['is_add'] ==1)
-                    <a href="{{ URL::to('beinspirediwomenposts/update?return='.$return) }}" class="tips btn btn-xs btn-success" title="{{ Lang::get('core.btn_create') }}">
+                    <a href="{{ URL::to('tlgprofiles/update?return='.$return) }}" class="tips btn btn-xs btn-success" title="{{ Lang::get('core.btn_create') }}">
                         <i class="fa  fa-plus "></i> <span class="hidden-xs">{{ Lang::get('core.btn_create') }}</span></a>
                     @endif @if($access['is_remove'] ==1)
                     <a href="javascript://ajax" onclick="SximoDelete();" class="tips btn btn-xs red" title="{{ Lang::get('core.btn_remove') }}">
                         <i class="fa fa-trash-o"></i> <span class="hidden-xs">{{ Lang::get('core.btn_remove') }}</span></a>
                     @endif
-                    <a href="{{ URL::to( 'beinspirediwomenposts/search?return='.$return) }}" class="tips btn btn-xs btn-info" onclick="SximoModal(this.href,'Advance Search'); return false;" title="{{ Lang::get('core.btn_search') }}"><i class="fa  fa-search"></i> <span class="hidden-xs">{{ Lang::get('core.btn_search') }}</span></a>
+                    <a href="{{ URL::to( 'tlgprofiles/search?return='.$return) }}" class="tips btn btn-xs btn-info" onclick="SximoModal(this.href,'Advance Search'); return false;" title="{{ Lang::get('core.btn_search') }}"><i class="fa  fa-search"></i> <span class="hidden-xs">{{ Lang::get('core.btn_search') }}</span></a>
                     @if($access['is_excel'] ==1)
-                    <a href="{{ URL::to('beinspirediwomenposts/download?return='.$return) }}" class="tips btn btn-xs btn-warning" title="{{ Lang::get('core.btn_download') }}">
+                    <a href="{{ URL::to('tlgprofiles/download?return='.$return) }}" class="tips btn btn-xs btn-warning" title="{{ Lang::get('core.btn_download') }}">
                         <i class="fa fa-cloud-download"></i> <span class="hidden-xs">{{ Lang::get('core.btn_download') }}</span></a>
                     @endif
 
@@ -33,7 +33,7 @@
                 @if(count($rowData) >= 1)
 
                 {!! (isset($search_map) ? $search_map : '') !!} 
-                {!! Form::open(array('url'=>'beinspirediwomenposts/delete/0?return='.$return, 'class'=>'form-horizontal' ,'id' =>'SximoTable' )) !!}
+                {!! Form::open(array('url'=>'tlgprofiles/delete/0?return='.$return, 'class'=>'form-horizontal' ,'id' =>'SximoTable' )) !!}
                 <div class="table-responsive" style="min-height:300px;  padding-bottom:60px;">
                     <table class="table table-striped ">
                         <thead>
@@ -66,9 +66,9 @@
                                             <span class="caret"></span></button>
                                         <ul class="dropdown-menu">
                                             @if($access['is_detail'] ==1)
-                                            <li><a href="{{ URL::to('beinspirediwomenposts/show/'.$row->id.'?return='.$return)}}" class="tips" title="{{ Lang::get('core.btn_view') }}"><i class="fa  fa-search "></i> {{ Lang::get('core.btn_view') }} </a></li>
+                                            <li><a href="{{ URL::to('tlgprofiles/show/'.$row->id.'?return='.$return)}}" class="tips" title="{{ Lang::get('core.btn_view') }}"><i class="fa  fa-search "></i> {{ Lang::get('core.btn_view') }} </a></li>
                                             @endif @if($access['is_edit'] ==1)
-                                            <li><a href="{{ URL::to('beinspirediwomenposts/update/'.$row->id.'?return='.$return) }}" class="tips" title="{{ Lang::get('core.btn_edit') }}"><i class="fa fa-edit "></i> {{ Lang::get('core.btn_edit') }} </a></li>
+                                            <li><a href="{{ URL::to('tlgprofiles/update/'.$row->id.'?return='.$return) }}" class="tips" title="{{ Lang::get('core.btn_edit') }}"><i class="fa fa-edit "></i> {{ Lang::get('core.btn_edit') }} </a></li>
                                             @endif
                                         </ul>
                                     </div>
@@ -96,7 +96,7 @@
                     <p class="text-center" style="padding:50px 0;">{{ Lang::get('core.norecord') }}
                         <br />
                         <br />
-                        <a href="{{ URL::to('beinspirediwomenposts/update?return='.$return) }}" class="btn btn-default "><i class="icon-plus-circle2"></i> New beinspirediwomenposts </a>
+                        <a href="{{ URL::to('tlgprofiles/update?return='.$return) }}" class="btn btn-default "><i class="icon-plus-circle2"></i> New tlgprofiles </a>
                     </p>
                 @endif
             </div>

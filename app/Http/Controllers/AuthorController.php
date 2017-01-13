@@ -27,6 +27,7 @@ class AuthorController extends Controller {
 			$this->data = array(
 				'pageTitle'	=> 	$this->info['title'],
 				'pageNote'	=>  $this->info['note'],
+				'pageAction'=>  'View All',
 				'pageModule'=> 'author',
 				'return'	=> self::returnUrl()
 				
@@ -124,8 +125,10 @@ class AuthorController extends Controller {
 		if($row)
 		{
 			$this->data['row'] =  $row;
+			$this->data['pageAction'] =  'Edit';
 		} else {
 			$this->data['row'] = $this->model->getColumnTable('authors'); 
+			$this->data['pageAction'] =  'Add New';
 		}
 		$this->data['fields'] 		=  \SiteHelpers::fieldLang($this->info['config']['forms']);
 		
@@ -143,6 +146,7 @@ class AuthorController extends Controller {
 		$row = $this->model->getRow($id);
 		if($row)
 		{
+			$this->data['pageAction'] =  'View';
 			$this->data['row'] =  $row;
 			$this->data['fields'] 		=  \SiteHelpers::fieldLang($this->info['config']['grid']);
 			$this->data['id'] = $id;
