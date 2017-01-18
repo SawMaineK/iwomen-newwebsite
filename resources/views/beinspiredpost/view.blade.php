@@ -8,7 +8,7 @@
         	<div class="portlet-title hidden-xs">
                 @if(isset($pageTitle) && isset($pageAction))
                 <div class="caption">
-                    <i class="envelope font-blue-sharp"></i><span class="caption-subject font-blue-sharp bold uppercase">{{ $pageTitle }} : <small> {{ $pageAction }}</small></span>
+                    <i class="icon-envelope font-blue-sharp"></i><span class="caption-subject font-blue-sharp bold uppercase">{{ $pageTitle }} : <small> {{ $pageAction }}</small></span>
                 </div>
                 @endif
                 <div class="actions ">
@@ -44,8 +44,8 @@
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>AuthorId</td>
-						<td>{{ $row->authorId}} </td>
+						<td width='30%' class='label-view text-right'>Author</td>
+						<td>{{ SiteHelpers::formatLookUp($row->authorId,'authorId','1:authors:objectId:organization_name') }} </td>
 						
 					</tr>
 				
@@ -61,39 +61,49 @@
 						
 					</tr>
 				
+			<?php 
+			$limited = isset($fields['content']['limited']) ? $fields['content']['limited'] :'';
+			if(SiteHelpers::filterColumn($limited )) { ?>
+						
 					<tr>
 						<td width='30%' class='label-view text-right'>Content</td>
 						<td>{{ $row->content}} </td>
 						
 					</tr>
 				
+			<?php } ?>
 					<tr>
 						<td width='30%' class='label-view text-right'>ContentType</td>
 						<td>{{ $row->contentType}} </td>
 						
 					</tr>
 				
+			<?php 
+			$limited = isset($fields['content_mm']['limited']) ? $fields['content_mm']['limited'] :'';
+			if(SiteHelpers::filterColumn($limited )) { ?>
+						
 					<tr>
-						<td width='30%' class='label-view text-right'>Content Mm</td>
+						<td width='30%' class='label-view text-right'>Content Myanmar</td>
 						<td>{{ $row->content_mm}} </td>
 						
 					</tr>
 				
+			<?php } ?>
 					<tr>
 						<td width='30%' class='label-view text-right'>Credit Link</td>
-						<td>{{ $row->credit_link}} </td>
+						<td><a href="">{{ $row->credit_link}} </a> </td>
 						
 					</tr>
 				
 					<tr>
 						<td width='30%' class='label-view text-right'>Credit Link Mm</td>
-						<td>{{ $row->credit_link_mm}} </td>
+						<td><a href="">{{ $row->credit_link_mm}} </a> </td>
 						
 					</tr>
 				
 					<tr>
 						<td width='30%' class='label-view text-right'>Credit Logo Url</td>
-						<td>{{ $row->credit_logo_url}} </td>
+						<td>{!! SiteHelpers::formatRows($row->credit_logo_url,$fields['credit_logo_url'],$row ) !!} </td>
 						
 					</tr>
 				
@@ -111,13 +121,13 @@
 				
 					<tr>
 						<td width='30%' class='label-view text-right'>Image</td>
-						<td>{{ $row->image}} </td>
+						<td>{!! SiteHelpers::formatRows($row->image,$fields['image'],$row ) !!} </td>
 						
 					</tr>
 				
 					<tr>
 						<td width='30%' class='label-view text-right'>IsAllow</td>
-						<td>{{ $row->isAllow}} </td>
+						<td>{!! SiteHelpers::formatRows($row->isAllow,$fields['isAllow'],$row ) !!} </td>
 						
 					</tr>
 				
@@ -128,26 +138,32 @@
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>PostUploadName</td>
+						<td width='30%' class='label-view text-right'>Upload Name</td>
 						<td>{{ $row->postUploadName}} </td>
 						
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>PostUploadNameMM</td>
+						<td width='30%' class='label-view text-right'>Upload NameMM</td>
 						<td>{{ $row->postUploadNameMM}} </td>
 						
 					</tr>
 				
 					<tr>
-						<td width='30%' class='label-view text-right'>PostUploadUserImgPath</td>
-						<td>{{ $row->postUploadUserImgPath}} </td>
+						<td width='30%' class='label-view text-right'>Upload User Image</td>
+						<td>{!! SiteHelpers::formatRows($row->postUploadPersonImg,$fields['postUploadPersonImg'],$row ) !!} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Upload User Image</td>
+						<td>{!! SiteHelpers::formatRows($row->postUploadUserImgPath,$fields['postUploadUserImgPath'],$row ) !!} </td>
 						
 					</tr>
 				
 					<tr>
 						<td width='30%' class='label-view text-right'>PostUploadedDate</td>
-						<td>{{ $row->postUploadedDate}} </td>
+						<td>{{ date('d/m/Y',strtotime($row->postUploadedDate)) }} </td>
 						
 					</tr>
 				
@@ -170,20 +186,36 @@
 					</tr>
 				
 					<tr>
+						<td width='30%' class='label-view text-right'>Suggest Section Eng</td>
+						<td>{{ $row->suggest_section_eng}} </td>
+						
+					</tr>
+				
+			<?php 
+			$limited = isset($fields['title']['limited']) ? $fields['title']['limited'] :'';
+			if(SiteHelpers::filterColumn($limited )) { ?>
+						
+					<tr>
 						<td width='30%' class='label-view text-right'>Title</td>
 						<td>{{ $row->title}} </td>
 						
 					</tr>
 				
+			<?php } ?>
+			<?php 
+			$limited = isset($fields['titleMm']['limited']) ? $fields['titleMm']['limited'] :'';
+			if(SiteHelpers::filterColumn($limited )) { ?>
+						
 					<tr>
 						<td width='30%' class='label-view text-right'>TitleMm</td>
 						<td>{{ $row->titleMm}} </td>
 						
 					</tr>
 				
+			<?php } ?>
 					<tr>
-						<td width='30%' class='label-view text-right'>UserId</td>
-						<td>{{ $row->userId}} </td>
+						<td width='30%' class='label-view text-right'>User</td>
+						<td>{{ SiteHelpers::formatLookUp($row->userId,'userId','1:users:objectId:username') }} </td>
 						
 					</tr>
 				
@@ -202,12 +234,6 @@
 					<tr>
 						<td width='30%' class='label-view text-right'>Updated At</td>
 						<td>{{ $row->updated_at}} </td>
-						
-					</tr>
-				
-					<tr>
-						<td width='30%' class='label-view text-right'>Deleted At</td>
-						<td>{{ $row->deleted_at}} </td>
 						
 					</tr>
 				

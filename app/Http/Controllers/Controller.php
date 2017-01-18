@@ -224,23 +224,37 @@ class Controller extends BaseController
 			} else {
 	
 				if( $form['type'] =='file')
+			{
+				if(!is_null($request->file($form['field'])))
 				{
-					if(!is_null($request->file($form['field'])))
-					{
 
-						if($form['option']['upload_type'] =='image')
-						{
-							$rules[$form['field']] = 'mimes:jpg,jpeg,png,gif,bmp';
-						} else {
+					if($form['option']['upload_type'] =='image')
+					{
+						if(is_array($request->file($form['field']))){
+							foreach ($request->file($form['field']) as $key => $value) {
+								$rules[$form['field'].$key] = 'mimes:jpg,jpeg,png,gif,bmp';
+							}
+						}else{
+							$rule = 'mimes:jpg,jpeg,png,gif,bmp';
+						}
+						
+					} else {
 							if($form['option']['image_multiple'] != '1')
 							{
-								$rules[$form['field']] = 'mimes:zip,csv,xls,doc,docx,xlsx';
-							} 
+								if(is_array($request->file($form['field']))){
+								foreach ($request->file($form['field']) as $key => $value) {
+									$rules[$form['field'].$key] = 'mimes:zip,csv,xls,doc,docx,xlsx,mp3';
+								}
+							}else{
+								$rule = 'mimes:zip,csv,xls,doc,docx,xlsx,mp3';
+							}
 							
-						}						
-					}
-
+						} 
+						
+					}						
 				}
+
+			}
 
 			}										
 		}	

@@ -5,12 +5,12 @@
     @include('layouts.breadcrumb')
     <div class="page-content-wrapper m-t">
 
-        {!! Form::open(array('url'=>'author/save?return='.$return, 'class'=>'form-horizontal','files' => true , 'parsley-validate'=>'','novalidate'=>' ')) !!} 
+        {!! Form::open(array('url'=>'categories/save?return='.$return, 'class'=>'form-horizontal','files' => true , 'parsley-validate'=>'','novalidate'=>' ')) !!} 
         <div class="portlet light bordered animated fadeInUp ">
             <div class="portlet-title">
                 @if(isset($pageTitle) && isset($pageAction))
                 <div class="caption">
-                    <i class="icon-user font-blue-sharp"></i><span class="caption-subject font-blue-sharp bold uppercase">{{ $pageTitle }} : <small> {{ $pageAction }}</small></span>
+                    <i class="icon-tag font-blue-sharp"></i><span class="caption-subject font-blue-sharp bold uppercase">{{ $pageTitle }} : <small> {{ $pageAction }}</small></span>
                 </div>
                 @endif
                 <div class="actions">
@@ -31,7 +31,7 @@
                 </div>
                 @endif
                 <div class="row">
-                    @include('author.fields')
+                    @include('categories.fields')
                 </div>
                 
                 <div class="row">
@@ -39,7 +39,7 @@
                         <div class="col-md-offset-4 col-md-8">
                             <button type="submit" name="apply" class="btn btn-info hidden-xs"><i class="fa fa-check-circle"></i> {{ Lang::get('core.sb_apply') }}</button>
                             <button type="submit" name="submit" class="btn btn-success"><i class="fa fa-save"></i> {{ Lang::get('core.sb_save') }}</button>
-                            <button type="button" onclick="location.href='{{ URL::to('author?return='.$return) }}' " class="btn red "><i class="fa fa-close "></i> {{ Lang::get('core.sb_cancel') }} </button>
+                            <button type="button" onclick="location.href='{{ URL::to('categories?return='.$return) }}' " class="btn red "><i class="fa fa-close "></i> {{ Lang::get('core.sb_cancel') }} </button>
                         </div>
 
                     </div>

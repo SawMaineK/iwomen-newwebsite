@@ -50,7 +50,7 @@
         <link rel="shortcut icon" href="{{ asset('favicon.ico')}}" /> </head>
     <!-- END HEAD -->
 
-    <body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo">
+    <body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo page-sidebar-fixed">
         @include('layouts/headmenu')
         <!-- BEGIN HEADER & CONTENT DIVIDER -->
         <div class="clearfix"> </div>
@@ -88,7 +88,7 @@
         <!-- BEGIN FOOTER -->
         <div class="page-footer">
             <div class="page-footer-inner"> 2016 &copy; {{CNF_APPNAME}} By
-               <a target="_blank" href="http://thesuntechnology.com">THE SUN TECHNOLOTY</a>
+               <a target="_blank" href="http://msdt.com.mm">M S D T Co., Ltd.</a>
             </div>
             <div class="scroll-to-top">
                 <i class="icon-arrow-up"></i>

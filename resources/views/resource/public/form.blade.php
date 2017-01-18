@@ -26,8 +26,8 @@
 												<div class="col-xs-12 col-md-7">
 											  		<div class="form-control fileinput fileinput-new @if($row['author_img_path'] =='') required @endif " data-provides="fileinput" style="border: none;">
 		                            <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-		                            @if(file_exists('.authors_photo/'.$row['author_img_path']) && $row['author_img_path'] !='')
-		                            	<img src="{{asset('.authors_photo/'.$row["author_img_path"])}}" alt="" />
+		                            @if(file_exists('./'.$row['author_img_path']) && $row['author_img_path'] !='')
+		                            	<img src="{{asset('./'.$row["author_img_path"])}}" alt="" />
 		                            @else
 		                                <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" /> 
 		                            @endif
@@ -100,7 +100,7 @@
 											 	</div>
 										  	</div> 
 											<div class="form-group {{ $errors->has('resource_author_id') ? 'has-error' : '' }}  " >
-												<label for="Resource Author" class=" control-label col-xs-12 col-md-4 text-left"> Resource Author <span class="asterix"> * </span></label>
+												<label for="Resource Author ID " class=" control-label col-xs-12 col-md-4 text-left"> Resource Author ID  <span class="asterix"> * </span></label>
 												<div class="col-xs-12 col-md-7">
 											  		<select name='resource_author_id' rows='5' id='resource_author_id' class='form-control select2 ' required                                      ></select>
 											  		
@@ -116,9 +116,9 @@
 											 	</div>
 										  	</div> 
 											<div class="form-group {{ $errors->has('resource_author_name') ? 'has-error' : '' }}  " >
-												<label for="Resource Author Name" class=" control-label col-xs-12 col-md-4 text-left"> Resource Author Name <span class="asterix"> * </span></label>
+												<label for="Resource Author Name Eng" class=" control-label col-xs-12 col-md-4 text-left"> Resource Author Name Eng <span class="asterix"> * </span></label>
 												<div class="col-xs-12 col-md-7">
-											  		<input type='text' name='resource_author_name' id='resource_author_name' value='{{ $row['resource_author_name'] }}' required   class='form-control ' />
+											  		<select name='resource_author_name' rows='5' id='resource_author_name' class='form-control select2 ' required  ></select>
 											  		
 									@if ($errors->has("resource_author_name"))
 										<span class="help-block">
@@ -183,8 +183,11 @@
 	$(document).ready(function() { 
 		
 		
-		$("#resource_author_id").jCombo("{!! url('resource/comboselect?filter=authors:authorName:authorName') !!}",
+		$("#resource_author_id").jCombo("{!! url('resource/comboselect?filter=authors:objectId:authorName') !!}",
 		{  selected_value : '{{ $row["resource_author_id"] }}' });
+		
+		$("#resource_author_name").jCombo("{!! url('resource/comboselect?filter=authors:authorName:authorName') !!}",
+		{  selected_value : '{{ $row["resource_author_name"] }}' });
 		 
 
 		$('.removeCurrentFiles').on('click',function(){

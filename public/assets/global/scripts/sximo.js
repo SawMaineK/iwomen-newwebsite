@@ -26,15 +26,15 @@ jQuery(document).ready(function($){
       var offset = 220;
       var duration = 500;
       var button = $('<a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>');
-      button.appendTo("body");
+      //button.appendTo("body");
       
-      jQuery(window).scroll(function() {
+      /*jQuery(window).scroll(function() {
         if (jQuery(this).scrollTop() > offset) {
             jQuery('.back-to-top').fadeIn(duration);
         } else {
             jQuery('.back-to-top').fadeOut(duration);
         }
-      });
+      });*/
     
       jQuery('.back-to-top').click(function(event) {
           event.preventDefault();

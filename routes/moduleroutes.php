@@ -28,20 +28,6 @@
 	Route::post('resource/filter', 'ResourceController@postFilter');
 	Route::get('resource/lookup/{master_detail}', 'ResourceController@getLookup');
 
-	Route::get('beinspiredpost', 'BeinspiredpostController@getIndex');
-	Route::get('beinspiredpost/update', 'BeinspiredpostController@getUpdate');
-	Route::get('beinspiredpost/update/{id}', 'BeinspiredpostController@getUpdate');
-	Route::get('beinspiredpost/show/{id}', 'BeinspiredpostController@getShow');
-	Route::post('beinspiredpost/save', 'BeinspiredpostController@postSave');
-	Route::post('beinspiredpost/delete/{id}', 'BeinspiredpostController@postDelete');
-	Route::get('beinspiredpost/savepublic', 'BeinspiredpostController@postSavepublic');
-	Route::get('beinspiredpost/download', 'BeinspiredpostController@getDownload');
-	Route::get('beinspiredpost/search', 'BeinspiredpostController@getSearch');
-	Route::get('beinspiredpost/comboselect', 'BeinspiredpostController@getComboselect');
-	Route::get('beinspiredpost/removefiles', 'BeinspiredpostController@getComboselect');
-	Route::post('beinspiredpost/filter', 'BeinspiredpostController@postFilter');
-	Route::get('beinspiredpost/lookup/{master_detail}', 'BeinspiredpostController@getLookup');
-
 	Route::get('subresourcedetail', 'SubresourcedetailController@getIndex');
 	Route::get('subresourcedetail/update', 'SubresourcedetailController@getUpdate');
 	Route::get('subresourcedetail/update/{id}', 'SubresourcedetailController@getUpdate');
@@ -83,5 +69,33 @@
 	Route::get('tlgprofiles/removefiles', 'TlgprofilesController@getComboselect');
 	Route::post('tlgprofiles/filter', 'TlgprofilesController@postFilter');
 	Route::get('tlgprofiles/lookup/{master_detail}', 'TlgprofilesController@getLookup');
+
+	Route::get('beinspiredpost', 'BeinspiredpostController@getIndex');
+	Route::get('beinspiredpost/update', 'BeinspiredpostController@getUpdate');
+	Route::get('beinspiredpost/update/{id}', 'BeinspiredpostController@getUpdate');
+	Route::get('beinspiredpost/show/{id}', 'BeinspiredpostController@getShow');
+	Route::post('beinspiredpost/save', 'BeinspiredpostController@postSave');
+	Route::post('beinspiredpost/delete/{id}', 'BeinspiredpostController@postDelete');
+	Route::get('beinspiredpost/savepublic', 'BeinspiredpostController@postSavepublic');
+	Route::get('beinspiredpost/download', 'BeinspiredpostController@getDownload');
+	Route::get('beinspiredpost/search', 'BeinspiredpostController@getSearch');
+	Route::get('beinspiredpost/comboselect', 'BeinspiredpostController@getComboselect');
+	Route::get('beinspiredpost/removefiles', 'BeinspiredpostController@getComboselect');
+	Route::post('beinspiredpost/filter', 'BeinspiredpostController@postFilter');
+	Route::get('beinspiredpost/lookup/{master_detail}', 'BeinspiredpostController@getLookup');
+
+	Route::get('categories', 'CategoriesController@getIndex');
+	Route::get('categories/update', 'CategoriesController@getUpdate');
+	Route::get('categories/update/{id}', 'CategoriesController@getUpdate');
+	Route::get('categories/show/{id}', 'CategoriesController@getShow');
+	Route::post('categories/save', 'CategoriesController@postSave');
+	Route::post('categories/delete/{id}', 'CategoriesController@postDelete');
+	Route::get('categories/savepublic', 'CategoriesController@postSavepublic');
+	Route::get('categories/download', 'CategoriesController@getDownload');
+	Route::get('categories/search', 'CategoriesController@getSearch');
+	Route::get('categories/comboselect', 'CategoriesController@getComboselect');
+	Route::get('categories/removefiles', 'CategoriesController@getComboselect');
+	Route::post('categories/filter', 'CategoriesController@postFilter');
+	Route::get('categories/lookup/{master_detail}', 'CategoriesController@getLookup');
 
 ?>

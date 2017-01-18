@@ -126,6 +126,12 @@
 					</tr>
 				
 					<tr>
+						<td width='30%' class='label-view text-right'>PostUploadPersonImg</td>
+						<td>{{ $row->postUploadPersonImg}} </td>
+						
+					</tr>
+				
+					<tr>
 						<td width='30%' class='label-view text-right'>PostUploadUserImgPath</td>
 						<td>{{ $row->postUploadUserImgPath}} </td>
 						
@@ -152,6 +158,12 @@
 					<tr>
 						<td width='30%' class='label-view text-right'>Share Count</td>
 						<td>{{ $row->share_count}} </td>
+						
+					</tr>
+				
+					<tr>
+						<td width='30%' class='label-view text-right'>Suggest Section Eng</td>
+						<td>{{ $row->suggest_section_eng}} </td>
 						
 					</tr>
 				
