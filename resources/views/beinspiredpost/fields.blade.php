@@ -292,62 +292,42 @@
 </div>
 
 <!-- Credit Name Eng  -->
-<div class="form-group {{ $errors->has('credit_name') ? 'has-error' : '' }}  " >
-	<label for="Credit Name Eng" class=" control-label col-xs-12 col-md-4 text-left"> Credit Name Eng <span class='asterix'> * </span></label>
+<div class="form-group   " >
+	<label for="Credit Name Eng" class=" control-label col-xs-12 col-md-4 text-left"> Credit Name Eng </label>
 	<div class="col-xs-12 col-md-7">
-  		<input type='text' name='credit_name' id='credit_name' value='{{ $row['credit_name'] }}' required   class='form-control ' />
-  		@if ($errors->has("credit_name"))
-	<span class="help-block">
-		<strong>{{ $errors->first("credit_name") }}</strong>
-	</span>
-	@endif
-  		 	</div> 	<div class="col-xs-12 col-md-1">
+  		<input type='text' name='credit_name' id='credit_name' value='{{ $row['credit_name'] }}'    class='form-control ' />
+  		  		 	</div> 	<div class="col-xs-12 col-md-1">
  		
  	</div>
 </div>
 
 <!-- Credit Name Mm  -->
-<div class="form-group {{ $errors->has('credit_name_mm') ? 'has-error' : '' }}  " >
-	<label for="Credit Name Mm" class=" control-label col-xs-12 col-md-4 text-left"> Credit Name Mm <span class='asterix'> * </span></label>
+<div class="form-group   " >
+	<label for="Credit Name Mm" class=" control-label col-xs-12 col-md-4 text-left"> Credit Name Mm </label>
 	<div class="col-xs-12 col-md-7">
-  		<input type='text' name='credit_name_mm' id='credit_name_mm' value='{{ $row['credit_name_mm'] }}' required   class='form-control ' />
-  		@if ($errors->has("credit_name_mm"))
-	<span class="help-block">
-		<strong>{{ $errors->first("credit_name_mm") }}</strong>
-	</span>
-	@endif
-  		 	</div> 	<div class="col-xs-12 col-md-1">
+  		<input type='text' name='credit_name_mm' id='credit_name_mm' value='{{ $row['credit_name_mm'] }}'    class='form-control ' />
+  		  		 	</div> 	<div class="col-xs-12 col-md-1">
  		
  	</div>
 </div>
 
 <!-- Credit Link Eng  -->
-<div class="form-group {{ $errors->has('credit_link') ? 'has-error' : '' }}  " >
-	<label for="Credit Link Eng" class=" control-label col-xs-12 col-md-4 text-left"> Credit Link Eng <span class='asterix'> * </span></label>
+<div class="form-group   " >
+	<label for="Credit Link Eng" class=" control-label col-xs-12 col-md-4 text-left"> Credit Link Eng </label>
 	<div class="col-xs-12 col-md-7">
-  		<input type='text' name='credit_link' id='credit_link' value='{{ $row['credit_link'] }}' required   class='form-control ' />
-  		@if ($errors->has("credit_link"))
-	<span class="help-block">
-		<strong>{{ $errors->first("credit_link") }}</strong>
-	</span>
-	@endif
-  		<span class="help-block">full http links</span>
+  		<input type='text' name='credit_link' id='credit_link' value='{{ $row['credit_link'] }}'    class='form-control ' />
+  		  		<span class="help-block">full http links</span>
  	</div> 	<div class="col-xs-12 col-md-1">
  		
  	</div>
 </div>
 
 <!-- Credit Link Mm  -->
-<div class="form-group {{ $errors->has('credit_link_mm') ? 'has-error' : '' }}  " >
-	<label for="Credit Link Mm" class=" control-label col-xs-12 col-md-4 text-left"> Credit Link Mm <span class='asterix'> * </span></label>
+<div class="form-group   " >
+	<label for="Credit Link Mm" class=" control-label col-xs-12 col-md-4 text-left"> Credit Link Mm </label>
 	<div class="col-xs-12 col-md-7">
-  		<input type='text' name='credit_link_mm' id='credit_link_mm' value='{{ $row['credit_link_mm'] }}' required   class='form-control ' />
-  		@if ($errors->has("credit_link_mm"))
-	<span class="help-block">
-		<strong>{{ $errors->first("credit_link_mm") }}</strong>
-	</span>
-	@endif
-  		<span class="help-block">full http links</span>
+  		<input type='text' name='credit_link_mm' id='credit_link_mm' value='{{ $row['credit_link_mm'] }}'    class='form-control ' />
+  		  		<span class="help-block">full http links</span>
  	</div> 	<div class="col-xs-12 col-md-1">
  		
  	</div>
