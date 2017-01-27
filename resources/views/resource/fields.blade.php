@@ -1,9 +1,9 @@
 <div class="form col-xs-12 col-md-12">
 {!! Form::hidden('id', $row['id']) !!}
 {!! Form::hidden('objectId', $row['objectId']) !!}
-<!-- Author Img Path  -->
+<!-- BeKnowledgeable  Icon Image   -->
 <div class="form-group {{ $errors->has('author_img_path') ? 'has-error' : '' }}  " >
-	<label for="Author Img Path" class=" control-label col-xs-12 col-md-4 text-left"> Author Img Path <span class='asterix'> * </span></label>
+	<label for="BeKnowledgeable  Icon Image " class=" control-label col-xs-12 col-md-4 text-left"> BeKnowledgeable  Icon Image  <span class='asterix'> * </span></label>
 	<div class="col-xs-12 col-md-7">
   		<select name='author_img_path' rows='5' id='author_img_path' class='form-control select2 ' required                                                                          ></select>
   		@if ($errors->has("author_img_path"))
@@ -23,9 +23,9 @@
 	<div class="col-xs-12 col-md-7">
   		<div class="form col-xs-12">
 	<label class='radio radio-inline'>
-		<input type='radio' name='isAllow' value ='1' required                                                                         	@if($row['isAllow'] == '1') checked="checked" @endif > Yes </label>
+		<input type='radio' name='isAllow' value ='1' required                                                                          class='icheck ' 	@if($row['isAllow'] == '1') checked="checked" @endif > Yes </label>
 	<label class='radio radio-inline'>
-		<input type='radio' name='isAllow' value ='0' required                                                                         	@if($row['isAllow'] == '0') checked="checked" @endif > No </label>
+		<input type='radio' name='isAllow' value ='0' required                                                                          class='icheck ' 	@if($row['isAllow'] == '0') checked="checked" @endif > No </label>
 </div>
   		@if ($errors->has("isAllow"))
 	<span class="help-block">
@@ -53,9 +53,9 @@
 	<div class="col-xs-12 col-md-7">
   		<div class="form col-xs-12">
 	<label class='radio radio-inline'>
-		<input type='radio' name='week_content' value ='1' required                                                                                                             	@if($row['week_content'] == '1') checked="checked" @endif > Yes </label>
+		<input type='radio' name='week_content' value ='1' required                                                                                                              class='icheck ' 	@if($row['week_content'] == '1') checked="checked" @endif > Yes </label>
 	<label class='radio radio-inline'>
-		<input type='radio' name='week_content' value ='0' required                                                                                                             	@if($row['week_content'] == '0') checked="checked" @endif > No </label>
+		<input type='radio' name='week_content' value ='0' required                                                                                                              class='icheck ' 	@if($row['week_content'] == '0') checked="checked" @endif > No </label>
 </div>
   		@if ($errors->has("week_content"))
 	<span class="help-block">
@@ -68,31 +68,21 @@
 </div>
 
 <!-- Resource Author ID   -->
-<div class="form-group {{ $errors->has('resource_author_id') ? 'has-error' : '' }}  " >
-	<label for="Resource Author ID " class=" control-label col-xs-12 col-md-4 text-left"> Resource Author ID  <span class='asterix'> * </span></label>
+<div class="form-group   " >
+	<label for="Resource Author ID " class=" control-label col-xs-12 col-md-4 text-left"> Resource Author ID  </label>
 	<div class="col-xs-12 col-md-7">
-  		<select name='resource_author_id' rows='5' id='resource_author_id' class='form-control select2 ' required                                      ></select>
-  		@if ($errors->has("resource_author_id"))
-	<span class="help-block">
-		<strong>{{ $errors->first("resource_author_id") }}</strong>
-	</span>
-	@endif
-  		 	</div> 	<div class="col-xs-12 col-md-1">
+  		<select name='resource_author_id' rows='5' id='resource_author_id' class='form-control select2 '                                       ></select>
+  		  		 	</div> 	<div class="col-xs-12 col-md-1">
  		
  	</div>
 </div>
 
 <!-- Resource Author Name Eng  -->
-<div class="form-group {{ $errors->has('resource_author_name') ? 'has-error' : '' }}  " >
-	<label for="Resource Author Name Eng" class=" control-label col-xs-12 col-md-4 text-left"> Resource Author Name Eng <span class='asterix'> * </span></label>
+<div class="form-group   " >
+	<label for="Resource Author Name Eng" class=" control-label col-xs-12 col-md-4 text-left"> Resource Author Name Eng </label>
 	<div class="col-xs-12 col-md-7">
-  		<select name='resource_author_name' rows='5' id='resource_author_name' class='form-control select2 ' required  ></select>
-  		@if ($errors->has("resource_author_name"))
-	<span class="help-block">
-		<strong>{{ $errors->first("resource_author_name") }}</strong>
-	</span>
-	@endif
-  		 	</div> 	<div class="col-xs-12 col-md-1">
+  		<select name='resource_author_name' rows='5' id='resource_author_name' class='form-control select2 '   ></select>
+  		  		 	</div> 	<div class="col-xs-12 col-md-1">
  		
  	</div>
 </div>

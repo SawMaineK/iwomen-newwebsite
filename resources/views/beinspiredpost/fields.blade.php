@@ -247,9 +247,9 @@
  	</div>
 </div>
 
-<!-- VideoId  -->
+<!-- Video YouTube Id  -->
 <div class="form-group   " >
-	<label for="VideoId" class=" control-label col-xs-12 col-md-4 text-left"> VideoId </label>
+	<label for="Video YouTube Id" class=" control-label col-xs-12 col-md-4 text-left"> Video YouTube Id </label>
 	<div class="col-xs-12 col-md-7">
   		<input type='text' name='videoId' id='videoId' value='{{ $row['videoId'] }}'    class='form-control ' />
   		  		 	</div> 	<div class="col-xs-12 col-md-1">
@@ -337,8 +337,8 @@
 <div class="form-group {{ $errors->has('postUploadedDate') ? 'has-error' : '' }}  " >
 	<label for="Post Uploaded Date" class=" control-label col-xs-12 col-md-4 text-left"> Post Uploaded Date <span class='asterix'> * </span></label>
 	<div class="col-xs-12 col-md-7">
-  		<div class="input-group m-b" style="width:150px !important;">
-	{!! Form::text('postUploadedDate', $row['postUploadedDate'],array('class'=>'form-control datetime', 'style'=>'width:150px !important;')) !!}
+  		<div class="input-group">
+	<input  type='text' name='postUploadedDate' id='postUploadedDate' value='{{ $row['postUploadedDate'] }}' required   class='form-control datetime ' data-date-format='yyyy-mm-dd h:i:s' />
 	<span class="input-group-addon"><i class="fa fa-
 calendar"></i></span>
 </div>
@@ -359,9 +359,9 @@ calendar"></i></span>
 	<div class="col-xs-12 col-md-7">
   		<div class="form col-xs-12">
 	<label class='radio radio-inline'>
-		<input type='radio' name='week_content' value ='1' required 	@if($row['week_content'] == '1') checked="checked" @endif > Yes </label>
+		<input type='radio' name='week_content' value ='1' required  class='icheck ' 	@if($row['week_content'] == '1') checked="checked" @endif > Yes </label>
 	<label class='radio radio-inline'>
-		<input type='radio' name='week_content' value ='0' required 	@if($row['week_content'] == '0') checked="checked" @endif > No </label>
+		<input type='radio' name='week_content' value ='0' required  class='icheck ' 	@if($row['week_content'] == '0') checked="checked" @endif > No </label>
 </div>
   		@if ($errors->has("week_content"))
 	<span class="help-block">
@@ -379,9 +379,9 @@ calendar"></i></span>
 	<div class="col-xs-12 col-md-7">
   		<div class="form col-xs-12">
 	<label class='radio radio-inline'>
-		<input type='radio' name='isAllow' value ='1' required 	@if($row['isAllow'] == '1') checked="checked" @endif > Yes </label>
+		<input type='radio' name='isAllow' value ='1' required  class='icheck ' 	@if($row['isAllow'] == '1') checked="checked" @endif > Yes </label>
 	<label class='radio radio-inline'>
-		<input type='radio' name='isAllow' value ='0' required 	@if($row['isAllow'] == '0') checked="checked" @endif > No </label>
+		<input type='radio' name='isAllow' value ='0' required  class='icheck ' 	@if($row['isAllow'] == '0') checked="checked" @endif > No </label>
 </div>
   		@if ($errors->has("isAllow"))
 	<span class="help-block">

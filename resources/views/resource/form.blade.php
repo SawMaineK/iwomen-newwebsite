@@ -5,7 +5,7 @@
     @include('layouts.breadcrumb')
     <div class="page-content-wrapper m-t">
 
-        {!! Form::open(array('url'=>'resource/save?return='.$return, 'class'=>'form-horizontal','files' => true , 'parsley-validate'=>'','novalidate'=>' ')) !!} 
+        {!! Form::open(array('url'=>'resource/save?return='.$return, 'class'=>'form-horizontal','files' => true , 'data-parsley-validate'=>'')) !!} 
         <div class="portlet light bordered animated fadeInUp ">
             <div class="portlet-title">
                 @if(isset($pageTitle) && isset($pageAction))
