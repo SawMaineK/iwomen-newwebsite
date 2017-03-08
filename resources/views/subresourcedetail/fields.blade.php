@@ -61,8 +61,8 @@
 <div class="form-group {{ $errors->has('posted_date') ? 'has-error' : '' }}  " >
 	<label for="Posted Date" class=" control-label col-xs-12 col-md-4 text-left"> Posted Date <span class='asterix'> * </span></label>
 	<div class="col-xs-12 col-md-7">
-  		<div class="input-group m-b" style="width:150px !important;">
-	{!! Form::text('posted_date', $row['posted_date'],array('class'=>'form-control datetime', 'style'=>'width:150px !important;')) !!}
+  		<div class="input-group">
+	<input  type='text' name='posted_date' id='posted_date' value='{{ $row['posted_date'] }}' required   class='form-control datetime ' data-date-format='yyyy-mm-dd h:i:s' />
 	<span class="input-group-addon"><i class="fa fa-
 calendar"></i></span>
 </div>
@@ -89,6 +89,28 @@ calendar"></i></span>
 	@endif
   		<span class="help-block">Show Resource Title  and save Resource ID</span>
  	</div> 	<div class="col-xs-12 col-md-1">
+ 		
+ 	</div>
+</div>
+
+<!-- Sub Res Icon Img Url  -->
+<div class="form-group   " >
+	<label for="Sub Res Icon Img Url" class=" control-label col-xs-12 col-md-4 text-left"> Sub Res Icon Img Url </label>
+	<div class="col-xs-12 col-md-7">
+  		<div class="fileinput fileinput-new @if($row['sub_res_icon_img_url'] =='') required @endif" data-provides="fileinput">
+    <div class="input-group input-large">
+        <div class="form-control uneditable-input input-fixed input-medium" data-trigger="fileinput">
+            <i class="fa fa-file fileinput-exists"></i>&nbsp;
+            <span class="fileinput-filename"> </span>
+        </div>
+        <span class="input-group-addon btn default btn-file">
+            <span class="fileinput-new"> Select file </span>
+            <span class="fileinput-exists"> Change </span>
+            <input type="file" name="sub_res_icon_img_url" id="sub_res_icon_img_url"> </span>
+        <a href="javascript:;" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
+    </div>
+</div>
+  		  		 	</div> 	<div class="col-xs-12 col-md-1">
  		
  	</div>
 </div>
@@ -161,9 +183,9 @@ calendar"></i></span>
 	<div class="col-xs-12 col-md-7">
   		<div class="form col-xs-12">
 	<label class='radio radio-inline'>
-		<input type='radio' name='isAllow' value ='1' required 	@if($row['isAllow'] == '1') checked="checked" @endif > Show </label>
+		<input type='radio' name='isAllow' value ='1' required  class='icheck ' 	@if($row['isAllow'] == '1') checked="checked" @endif > Show </label>
 	<label class='radio radio-inline'>
-		<input type='radio' name='isAllow' value ='0' required 	@if($row['isAllow'] == '0') checked="checked" @endif > Not Show </label>
+		<input type='radio' name='isAllow' value ='0' required  class='icheck ' 	@if($row['isAllow'] == '0') checked="checked" @endif > Not Show </label>
 </div>
   		@if ($errors->has("isAllow"))
 	<span class="help-block">

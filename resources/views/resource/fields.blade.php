@@ -5,7 +5,23 @@
 <div class="form-group {{ $errors->has('author_img_path') ? 'has-error' : '' }}  " >
 	<label for="BeKnowledgeable  Icon Image " class=" control-label col-xs-12 col-md-4 text-left"> BeKnowledgeable  Icon Image  <span class='asterix'> * </span></label>
 	<div class="col-xs-12 col-md-7">
-  		<select name='author_img_path' rows='5' id='author_img_path' class='form-control select2 ' required                                                                          ></select>
+  		<div class="form-control fileinput fileinput-new @if($row['author_img_path'] =='') required @endif " data-provides="fileinput" style="border: none;">
+    <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+    @if(file_exists('.credit_logo/'.$row['author_img_path']) && $row['author_img_path'] !='')
+    	<img src="{{asset('.credit_logo/'.$row["author_img_path"])}}" alt="" />
+    @else
+        <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" />
+    @endif
+    </div>
+    <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
+    <div>
+        <span class="btn default btn-file">
+            <span class="fileinput-new"> Select image </span>
+            <span class="fileinput-exists"> Change </span>
+            <input type="file" name="author_img_path" id="author_img_path"> </span>
+        <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
+    </div>
+</div>
   		@if ($errors->has("author_img_path"))
 	<span class="help-block">
 		<strong>{{ $errors->first("author_img_path") }}</strong>

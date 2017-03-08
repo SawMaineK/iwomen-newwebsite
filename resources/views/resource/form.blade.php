@@ -56,9 +56,6 @@
     $(document).ready(function() {
          
         
-		$("#author_img_path").jCombo("{!! url('resource/comboselect?filter=authors:authorImg:authorName') !!}",
-		{  selected_value : '{{ $row["author_img_path"] }}' });
-		
 		$("#resource_author_id").jCombo("{!! url('resource/comboselect?filter=authors:objectId:authorName') !!}",
 		{  selected_value : '{{ $row["resource_author_id"] }}' });
 		
