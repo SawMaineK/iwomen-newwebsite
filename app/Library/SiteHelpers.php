@@ -1347,7 +1347,7 @@ class SiteHelpers
 			{
 
 				if(file_exists('.'.$format_value . $val))				
-					$vals .= '<a href="'.asset($format_value. $val ).'"> '.$val.' </a><br />';
+					$vals .= '<a href="'.asset('.'.$format_value. $val ).'"> '.$val.' </a><br />';
 			}
 			$value = $vals ;
 

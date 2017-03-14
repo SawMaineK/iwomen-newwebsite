@@ -98,4 +98,18 @@
 	Route::post('categories/filter', 'CategoriesController@postFilter');
 	Route::get('categories/lookup/{master_detail}', 'CategoriesController@getLookup');
 
+	Route::get('iwomenpostaudio', 'IwomenpostaudioController@getIndex');
+	Route::get('iwomenpostaudio/update', 'IwomenpostaudioController@getUpdate');
+	Route::get('iwomenpostaudio/update/{id}', 'IwomenpostaudioController@getUpdate');
+	Route::get('iwomenpostaudio/show/{id}', 'IwomenpostaudioController@getShow');
+	Route::post('iwomenpostaudio/save', 'IwomenpostaudioController@postSave');
+	Route::post('iwomenpostaudio/delete/{id}', 'IwomenpostaudioController@postDelete');
+	Route::get('iwomenpostaudio/savepublic', 'IwomenpostaudioController@postSavepublic');
+	Route::get('iwomenpostaudio/download', 'IwomenpostaudioController@getDownload');
+	Route::get('iwomenpostaudio/search', 'IwomenpostaudioController@getSearch');
+	Route::get('iwomenpostaudio/comboselect', 'IwomenpostaudioController@getComboselect');
+	Route::get('iwomenpostaudio/removefiles', 'IwomenpostaudioController@getComboselect');
+	Route::post('iwomenpostaudio/filter', 'IwomenpostaudioController@postFilter');
+	Route::get('iwomenpostaudio/lookup/{master_detail}', 'IwomenpostaudioController@getLookup');
+
 ?>

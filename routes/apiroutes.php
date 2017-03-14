@@ -6,4 +6,5 @@
 	Route::resource('tlgprofiles', 'API\TlgprofilesAPIController');
 	Route::resource('beinspiredpost', 'API\BeinspiredpostAPIController');
 	Route::resource('categories', 'API\CategoriesAPIController');
+	Route::resource('iwomenpostaudio', 'API\IwomenpostaudioAPIController');
 ?>
