@@ -25,7 +25,7 @@
         <link href="{{ asset('assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css')}}" rel="stylesheet">
         <link href="{{ asset('assets/global/plugins/select2/css/select2.min.css')}}" rel="stylesheet">
         <link href="{{ asset('assets/global/plugins/select2/css/select2-bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ asset('assets/global/plugins/icheck/skins/square/red.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/global/plugins/icheck/skins/all.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/global/plugins/fancybox/jquery.fancybox.css') }}" rel="stylesheet">
         <link href="{{ asset('assets/global/plugins/markitup/skins/simple/style.css') }}" rel="stylesheet">
         <link href="{{ asset('assets/global/plugins/markitup/sets/default/style.css') }}" rel="stylesheet">
