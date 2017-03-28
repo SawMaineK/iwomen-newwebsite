@@ -83,26 +83,6 @@
  	</div>
 </div>
 
-<!-- Resource Author ID   -->
-<div class="form-group   " >
-	<label for="Resource Author ID " class=" control-label col-xs-12 col-md-4 text-left"> Resource Author ID  </label>
-	<div class="col-xs-12 col-md-7">
-  		<select name='resource_author_id' rows='5' id='resource_author_id' class='form-control select2 '                                       ></select>
-  		  		 	</div> 	<div class="col-xs-12 col-md-1">
- 		
- 	</div>
-</div>
-
-<!-- Resource Author Name Eng  -->
-<div class="form-group   " >
-	<label for="Resource Author Name Eng" class=" control-label col-xs-12 col-md-4 text-left"> Resource Author Name Eng </label>
-	<div class="col-xs-12 col-md-7">
-  		<select name='resource_author_name' rows='5' id='resource_author_name' class='form-control select2 '   ></select>
-  		  		 	</div> 	<div class="col-xs-12 col-md-1">
- 		
- 	</div>
-</div>
-
 <!-- Resource Title Eng  -->
 <div class="form-group {{ $errors->has('resource_title_eng') ? 'has-error' : '' }}  " >
 	<label for="Resource Title Eng" class=" control-label col-xs-12 col-md-4 text-left"> Resource Title Eng <span class='asterix'> * </span></label>

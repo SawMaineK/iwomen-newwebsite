@@ -56,12 +56,6 @@
     $(document).ready(function() {
          
         
-		$("#resource_author_id").jCombo("{!! url('resource/comboselect?filter=authors:objectId:authorName') !!}",
-		{  selected_value : '{{ $row["resource_author_id"] }}' });
-		
-		$("#resource_author_name").jCombo("{!! url('resource/comboselect?filter=authors:authorName:authorName') !!}",
-		{  selected_value : '{{ $row["resource_author_name"] }}' });
-		
     });
 </script>
 @endsection
