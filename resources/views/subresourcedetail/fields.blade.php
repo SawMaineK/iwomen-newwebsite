@@ -41,9 +41,9 @@
  	</div>
 </div>
 
-<!-- Author Img Url  -->
+<!-- Author Image Path  -->
 <div class="form-group {{ $errors->has('author_img_url') ? 'has-error' : '' }}  " >
-	<label for="Author Img Url" class=" control-label col-xs-12 col-md-4 text-left"> Author Img Url <span class='asterix'> * </span></label>
+	<label for="Author Image Path" class=" control-label col-xs-12 col-md-4 text-left"> Author Image Path <span class='asterix'> * </span></label>
 	<div class="col-xs-12 col-md-7">
   		<select name='author_img_url' rows='5' id='author_img_url' class='form-control select2 ' required  ></select>
   		@if ($errors->has("author_img_url"))
@@ -93,9 +93,9 @@ calendar"></i></span>
  	</div>
 </div>
 
-<!-- Sub Res Icon Img Url  -->
+<!-- Sub Resource Image Path  -->
 <div class="form-group   " >
-	<label for="Sub Res Icon Img Url" class=" control-label col-xs-12 col-md-4 text-left"> Sub Res Icon Img Url </label>
+	<label for="Sub Resource Image Path" class=" control-label col-xs-12 col-md-4 text-left"> Sub Resource Image Path </label>
 	<div class="col-xs-12 col-md-7">
   		<div class="fileinput fileinput-new @if($row['sub_res_icon_img_url'] =='') required @endif" data-provides="fileinput">
     <div class="input-group input-large">
