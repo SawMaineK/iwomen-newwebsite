@@ -321,21 +321,6 @@
  	</div>
 </div>
 
-<!-- Tlg Leader Role  -->
-<div class="form-group {{ $errors->has('tlg_leader_role') ? 'has-error' : '' }}  " >
-	<label for="Tlg Leader Role" class=" control-label col-xs-12 col-md-4 text-left"> Tlg Leader Role <span class='asterix'> * </span></label>
-	<div class="col-xs-12 col-md-7">
-  		<input type='text' name='tlg_leader_role' id='tlg_leader_role' value='{{ $row['tlg_leader_role'] }}' required   class='form-control ' />
-  		@if ($errors->has("tlg_leader_role"))
-	<span class="help-block">
-		<strong>{{ $errors->first("tlg_leader_role") }}</strong>
-	</span>
-	@endif
-  		 	</div> 	<div class="col-xs-12 col-md-1">
- 		
- 	</div>
-</div>
-
 <!-- Tlg Member Ph No  -->
 <div class="form-group {{ $errors->has('tlg_member_ph_no') ? 'has-error' : '' }}  " >
 	<label for="Tlg Member Ph No" class=" control-label col-xs-12 col-md-4 text-left"> Tlg Member Ph No <span class='asterix'> * </span></label>
